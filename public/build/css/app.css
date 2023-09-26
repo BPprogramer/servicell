@@ -1,0 +1,118 @@
+/** Media Queries **/
+.widget-user-2 .widget-user-username {
+  margin-left: 0 !important;
+}
+
+.select2-container .select2-selection--single {
+  height: 38px !important;
+  border: 1px solid #ced4da !important;
+}
+
+a.nav-link.active {
+  background-color: #3c8dbc !important;
+}
+
+.modal-80rem {
+  max-width: 80rem !important;
+}
+
+.bg-azul {
+  background-color: #3c8dbc !important;
+}
+
+.bg-hover-azul {
+  background-color: #3c8dbc !important;
+}
+.bg-hover-azul:hover {
+  background-color: #23536f !important;
+}
+
+.text-azul {
+  color: #3c8dbc !important;
+}
+.text-azul:hover {
+  color: #23536f !important;
+}
+
+.text-blanco {
+  color: white !important;
+}
+
+.paginate_button.page-item .page-link {
+  color: #3c8dbc !important;
+}
+
+.paginate_button.page-item.active .page-link {
+  background-color: #3c8dbc !important;
+  border: 1px solid #3c8dbc !important;
+  color: white !important;
+}
+
+.paginate_button.page-item.previous .page-link {
+  color: #3c8dbc !important;
+}
+
+.paginate_button.page-item.previous.disabled .page-link {
+  color: #6c757d !important;
+}
+
+.paginate_button.page-item.next .page-link {
+  color: #3c8dbc !important;
+}
+
+.paginate_button.page-item.next.disabled .page-link {
+  color: #6c757d !important;
+}
+
+.toolMio {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.toolMio-text {
+  visibility: hidden;
+  position: absolute !important;
+  bottom: 0%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #1a1b15;
+  color: #FFFFFF;
+  padding: 5px;
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity 0.3s, visibility 0s;
+}
+
+.toolMio:hover .toolMio-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+.costos,
+.ingresos,
+.notificaciones {
+  margin-top: 0;
+  font-size: 1.5rem;
+  margin: 2rem 0;
+  max-height: 30rem;
+  overflow: auto;
+  margin-top: 0;
+}
+
+.imagenes img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.nav-tabs .active-nav {
+  color: #3c8dbc !important;
+  background-color: #fff;
+  border-color: #dee2e6 #dee2e6 #fff;
+}
+
+.color-texto {
+  color: #495057 !important;
+}
+/*# sourceMappingURL=app.css.map */

@@ -1,0 +1,133 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+// html {
+//     font-size: 62.5%;
+//     box-sizing: border-box;
+// }
+// *, *:before, *:after {
+//     box-sizing: inherit;
+// }
+// body {
+//     font-family: v.$fuente_principal;
+//     font-size: 1.8rem;
+// }
+// a {
+//     text-decoration: none;
+// }
+// img {
+//     width: 100%;
+//     height: auto;
+// }
+
+.widget-user-2 .widget-user-username{
+    margin-left: 0 !important;
+}
+
+.select2-container .select2-selection--single{
+    height: 38px !important;
+    border: 1px solid #ced4da !important;
+}
+a.nav-link.active{
+    background-color: #3c8dbc !important;
+}
+.modal-80rem{
+    max-width: 80rem !important;
+}
+
+.bg-azul{
+    background-color: #3c8dbc !important;
+    //     &:hover{
+    //     background-color: darken(#3c8dbc,20) !important;
+    // }
+   
+}
+.bg-hover-azul{
+    background-color: #3c8dbc !important;
+    &:hover{
+        background-color: darken(#3c8dbc,20) !important;
+    }
+}
+.text-azul{
+    color: #3c8dbc !important;
+    &:hover{
+        color: darken(#3c8dbc,20) !important;
+    }
+    
+}
+.text-blanco{
+    color: white !important;
+}
+
+//
+.paginate_button.page-item{
+    .page-link{
+        color: #3c8dbc !important;
+    }
+    
+}
+
+.paginate_button.page-item.active{
+    .page-link{
+        background-color: #3c8dbc !important;
+        border: 1px solid  #3c8dbc !important;
+        color: white !important;
+    }
+    
+}
+
+.paginate_button.page-item.previous{
+    .page-link{
+        color: #3c8dbc !important;
+    }
+    
+}
+
+.paginate_button.page-item.previous.disabled{
+    .page-link{
+        color:#6c757d !important;
+    }
+    
+}
+.paginate_button.page-item.next{
+    .page-link{
+        color: #3c8dbc !important;
+    }
+    
+}
+
+.paginate_button.page-item.next.disabled{
+    .page-link{
+        color:#6c757d !important;
+    }
+    
+}
+
+
+.toolMio {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+  .toolMio-text {
+    visibility: hidden;
+    position: absolute !important;
+    // bottom: 100%;
+    // left: 50%;
+    bottom: 0%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: v.$negro;
+    color: v.$blanco;
+    padding: 5px;
+    border-radius: 4px;
+    opacity: 0;
+    transition: opacity 0.3s, visibility 0s;
+  }
+  
+  .toolMio:hover .toolMio-text {
+    visibility: visible;
+    opacity: 1;
+  }
+
