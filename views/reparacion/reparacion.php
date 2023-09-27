@@ -92,7 +92,7 @@
               </li>
               <li>
                 <a href="#" class="nav-link text-dark">
-                  imei 2<span class="float-right"><strong id="celular"><?php echo $reparacion->imei_1 ?></strong></span>
+                  imei 1<span class="float-right"><strong id="celular"><?php echo $reparacion->imei_1 ?></strong></span>
                 </a>
               </li>
               <li>
