@@ -26,9 +26,9 @@
 
         function imprimirResultados(resultado){
          
-            ingresos.textContent = '$'+(parseFloat(resultado.ingresos_totales)).toLocaleString('en');
+            ingresos.textContent = '$'+(parseFloat(resultado.ingresos_totales)+parseFloat(resultado.gastos_totales)).toLocaleString('en');
             gastos.textContent = '$'+(parseFloat(resultado.gastos_totales)).toLocaleString('en');
-            ganancias.textContent = '$'+(parseFloat(resultado.ganancias)).toLocaleString('en');
+            ganancias.textContent = '$'+(parseFloat(resultado.ingresos_totales)).toLocaleString('en');
             ganancias_mes_actual.textContent = '$'+(parseFloat(resultado.ganancias_mes_actual)).toLocaleString('en');
             ganancias_3_meses.textContent = '$'+(parseFloat(resultado.ganancias_3_meses)).toLocaleString('en');
             pendientes.textContent = resultado.pendientes;
