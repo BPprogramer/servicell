@@ -32,6 +32,7 @@ use Model\Reparacion;
                 'reparados'=>$reparadas,
                 'cerrados'=>$cerradas
             ];
+            debuguear($info);
             echo json_encode($info);
         }
     }

@@ -12,7 +12,7 @@
 
         consultarInfo();
         async function consultarInfo(){
-            const url = `${location.origin}/api/dashboard`;
+            const url = '/api/dashboard';
             try {
                 const respuesta = await fetch(url);
                 const resultado = await respuesta.json();

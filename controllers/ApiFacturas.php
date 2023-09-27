@@ -40,7 +40,7 @@ use Model\Reparacion;
                 // # Logo de la empresa formato png #
     
             
-                $pdf->Image('../public/img/LOGO_3.jpg',17,10,80,70,'JPG');
+                $pdf->Image('../public/img_logo/LOGO_5.jpg',17,10,80,70,'JPG');
 
                 $pdf->Ln(0);
         
@@ -277,7 +277,7 @@ use Model\Reparacion;
                 // # Logo de la empresa formato png #
     
             
-                $pdf->Image('../public/img/LOGO_3.jpg',17,10,80,70,'JPG');
+                $pdf->Image('../public/img_logo/LOGO_5.jpg',17,10,80,70,'JPG');
 
                 $pdf->Ln(0);
         
