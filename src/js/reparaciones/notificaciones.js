@@ -17,7 +17,7 @@
 
         async function obtenerNotificaciones(){
           const id = obtenerIdUrl();
-          const url =`http://localhost:3000/api/reparacion/notificaciones?id=${id}`;
+          const url =`${location.origin}/api/reparacion/notificaciones?id=${id}`;
           try {
               const respuesta = await fetch(url);
               const resultado = await respuesta.json();

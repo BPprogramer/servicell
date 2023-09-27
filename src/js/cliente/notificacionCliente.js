@@ -7,7 +7,7 @@
         async function obtenerNotificaciones(){
             const inputHiden = document.querySelector('#idReparacion');
             const id = inputHiden.dataset.reparacionId;
-            const url =`http://localhost:3000/api/reparacion/notificaciones?id=${id}`;
+            const url =`${location.origin}/api/reparacion/notificaciones?id=${id}`;
             try {
                 const respuesta = await fetch(url);
                 const resultado = await respuesta.json();

@@ -10,7 +10,7 @@
             
             const inputHiden = document.querySelector('#idReparacion');
             const id = inputHiden.dataset.reparacionId;
-            const url =`http://localhost:3000/api/reparacion/ingresos?id=${id}`;
+            const url =`${location.origin}/api/reparacion/ingresos?id=${id}`;
             try {
                 const respuesta = await fetch(url);
                 const resultado = await respuesta.json();

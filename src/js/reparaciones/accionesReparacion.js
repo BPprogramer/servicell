@@ -8,7 +8,7 @@
 
         async function consultarEstado(){
             const id = obtenerIdUrl();
-            const url = `http://localhost:3000/api/reparacion/estado-actual?id=${id}`;
+            const url = `${location.origin}/api/reparacion/estado-actual?id=${id}`;
             
             try {
                 const respuesta = await fetch(url);

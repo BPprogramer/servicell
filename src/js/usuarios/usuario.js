@@ -93,7 +93,7 @@
         async function eliminarUsuario(id){
             const datos = new FormData();
             datos.append('id', id)
-            url = 'http://localhost:3000/usuario/eliminar';
+            url = `${location.origin}/usuario/eliminar`;
             try {
                 const respuesta = await fetch(url,{
                     body:datos,
@@ -222,9 +222,9 @@
             btnSubmit.disabled = true;
             let url = '';
             if(id){
-                url = 'http://localhost:3000/usuario/editar';
+                url = `${location.origin}/usuario/editar`;
             }else{
-                url = 'http://localhost:3000/usuario/crear';
+                url = `${location.origin}/usuario/crear`;
             }
             
 

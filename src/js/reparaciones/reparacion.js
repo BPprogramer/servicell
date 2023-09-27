@@ -33,7 +33,7 @@
 
         async function obtenerCostos(){
             const id = obtenerIdUrl();
-            const url =`http://localhost:3000/api/reparacion/costos?id=${id}`;
+            const url =`${location.origin}/api/reparacion/costos?id=${id}`;
             try {
                 const respuesta = await fetch(url);
                 const resultado = await respuesta.json();
