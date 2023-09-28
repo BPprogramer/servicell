@@ -48,6 +48,8 @@ $router->post('/api/reparacion/editar-ingreso', [ApiReparaciones::class, 'editar
 $router->post('/api/reparacion/eliminar-ingreso', [ApiReparaciones::class, 'eliminarIngreso']);
 $router->get('/api/reparacion/ingresos', [ApiReparaciones::class, 'ingresos']);
 $router->post('/api/reparacion/crear-notificacion', [ApiReparaciones::class, 'crearNotificacion']);
+$router->post('/api/reparacion/editar-notificacion', [ApiReparaciones::class, 'editarNotificacion']);
+$router->post('/api/reparacion/eliminar-notificacion', [ApiReparaciones::class, 'eliminarNotificacion']);
 $router->get('/api/reparacion/notificaciones', [ApiReparaciones::class, 'notificaciones']);
 
 $router->get('/api/reparacion/estado-actual', [ApiReparaciones::class, 'estadoActual']);

@@ -25,7 +25,7 @@
         }
 
         function imprimirResultados(resultado){
-         
+          
             ingresos.textContent = '$'+(parseFloat(resultado.ingresos_totales)+parseFloat(resultado.gastos_totales)).toLocaleString('en');
             gastos.textContent = '$'+(parseFloat(resultado.gastos_totales)).toLocaleString('en');
             ganancias.textContent = '$'+(parseFloat(resultado.ingresos_totales)).toLocaleString('en');

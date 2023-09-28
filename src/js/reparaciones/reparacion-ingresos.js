@@ -6,7 +6,9 @@
         const formularioIngresos = document.querySelector('#ingresoForm');
         const ingreso = document.querySelector('#ingreso')
         const descripcion = document.querySelector('#descripcion_ingreso');
-        const btnSubmitIngreso = document.querySelector('#btnSubmitIngreso')
+        const btnSubmitIngreso = document.querySelector('#btnSubmitIngreso');
+
+        
         
         const totalIngresosSpan = document.querySelector('#totalIngresos');
 

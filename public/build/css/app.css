@@ -16,6 +16,14 @@ a.nav-link.active {
   max-width: 80rem !important;
 }
 
+.body-80rem {
+  height: 40rem !important;
+}
+
+.modal-img {
+  max-width: 40rem !important;
+}
+
 .bg-azul {
   background-color: #3c8dbc !important;
 }

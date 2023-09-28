@@ -221,3 +221,17 @@
 
 
 </section>
+
+<div class="modal fade" id="modal-carrousel-imagenes">
+  <div class="modal-dialog modal-img">
+    <div class="modal-content" >
+    
+    <div class="modal-body body-80rem" id="contenedor_carrousel_grande">
+        
+      </div>
+
+  </div>
+  <!-- /.modal-content -->
+</div>
+<!-- /.modal-dialog -->
+</div>

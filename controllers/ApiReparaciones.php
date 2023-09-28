@@ -204,7 +204,19 @@ use Model\Usuario;
             $reparacion_id = $_POST['reparacion_id'];
             $reparacion_id = filter_var($reparacion_id, FILTER_VALIDATE_INT);
             if(!$reparacion_id){
-                header('Location:/reparaciones');
+                echo json_encode(['type'=>'error', 'msg'=>'Hubo un error, Intenta nuevamente']);
+                return;
+            }
+            $reparacion = Reparacion::find($reparacion_id);
+            if(!$reparacion){
+                echo json_encode(['type'=>'error', 'msg'=>'Hubo un error, Intenta nuevamente']);
+                return;
+            }
+           
+            
+            if($reparacion->estado==2){
+                echo json_encode(['type'=>'error', 'msg'=>'No puedes agregar costos a una reparacion cerrada']);
+                return;
             }
             
             $costo = new Costo($_POST);
@@ -232,6 +244,16 @@ use Model\Usuario;
                 echo json_encode(['type'=>'error', 'msg'=>'Hubo un error, Intenta nuevamente']);
                 return;
             }
+
+            $reparacion = Reparacion::find($costo->reparacion_id);
+            if(!$reparacion){
+                echo json_encode(['type'=>'error', 'msg'=>'Hubo un error, Intenta nuevamente']);
+                return;
+            }
+            if($reparacion->estado==2){
+                echo json_encode(['type'=>'error', 'msg'=>'No puedes editar costos de una reparacion cerrada']);
+                return;
+            }
             $costo->sincronizar($_POST);
             $costo->formatearDatosFloat();
             $resultado = $costo->guardar();
@@ -249,12 +271,25 @@ use Model\Usuario;
             $id = $_POST['id'];
             $id = filter_var($id, FILTER_VALIDATE_INT);
             if(!$id){
-                header('Location:/reparaciones');
+                echo json_encode(['type'=>'error', 'msg'=>'Hubo un error, Intenta nuevamente']);
+                return;
             }
+
+            
             
             $costo = Costo::find($_POST['id']);
             if(!$costo){
                 echo json_encode(['type'=>'error', 'msg'=>'Hubo un error, Intenta nuevamente']);
+                return;
+            }
+
+            $reparacion = Reparacion::find($costo->reparacion_id);
+            if(!$reparacion){
+                echo json_encode(['type'=>'error', 'msg'=>'Hubo un error, Intenta nuevamente']);
+                return;
+            }
+            if($reparacion->estado==2){
+                echo json_encode(['type'=>'error', 'msg'=>'No puedes eliminar costos de una reparacion cerrada']);
                 return;
             }
             
@@ -290,8 +325,20 @@ use Model\Usuario;
             if(!$reparacion_id){
                 header('Location:/reparaciones');
             }
+
+            $reparacion = Reparacion::find($reparacion_id);
+            if(!$reparacion){
+                echo json_encode(['type'=>'error', 'msg'=>'Hubo un error, Intenta nuevamente']);
+                return;
+            }
+            if($reparacion->estado==2){
+                echo json_encode(['type'=>'error', 'msg'=>'No puedes agregar ingresos a una reparación cerrada']);
+                return;
+            }
             
             $ingreso = new Ingreso($_POST);
+
+            
             $ingreso->formatearDatosFloat();
             $resultado = $ingreso->guardar();
             if($resultado){
@@ -330,6 +377,15 @@ use Model\Usuario;
                 echo json_encode(['type'=>'error', 'msg'=>'Hubo un error, Intenta nuevamente']);
                 return;
             }
+            $reparacion = Reparacion::find($ingreso->reparacion_id);
+            if(!$reparacion){
+                echo json_encode(['type'=>'error', 'msg'=>'Hubo un error, Intenta nuevamente']);
+                return;
+            }
+            if($reparacion->estado==2){
+                echo json_encode(['type'=>'error', 'msg'=>'No puedes editar ingresos de una reparación cerrada']);
+                return;
+            }
             $ingreso->sincronizar($_POST);
             $ingreso->formatearDatosFloat();
             $resultado = $ingreso->guardar();
@@ -355,6 +411,17 @@ use Model\Usuario;
                 echo json_encode(['type'=>'error', 'msg'=>'Hubo un error, Intenta nuevamente']);
                 return;
             }
+
+            $reparacion = Reparacion::find($ingreso->reparacion_id);
+            if(!$reparacion){
+                echo json_encode(['type'=>'error', 'msg'=>'Hubo un error, Intenta nuevamente']);
+                return;
+            }
+            if($reparacion->estado==2){
+                echo json_encode(['type'=>'error', 'msg'=>'No puedes eliminar ingresos de una reparación cerrada']);
+                return;
+            }
+            
             
             $resultado = $ingreso->eliminar();
             if($resultado){
@@ -371,6 +438,15 @@ use Model\Usuario;
            
 
             $reparacion = Reparacion::find($_POST['reparacion_id']);
+   
+            if(!$reparacion){
+                echo json_encode(['type'=>'error', 'msg'=>'Hubo un error, Intenta nuevamente']);
+                return;
+            }
+            if($reparacion->estado==2){
+                echo json_encode(['type'=>'error', 'msg'=>'reparación cerrada']);
+                return;
+            }
            
 
             
@@ -425,6 +501,140 @@ use Model\Usuario;
             }
             
            
+        }
+        public static function editarNotificacion(){
+           
+         
+            $notificacion = Notificacion::find($_POST['id']);
+            if(!$notificacion){
+                echo json_encode(['type'=>'error', 'msg'=>'Hubo un error, Intenta nuevamente']);
+                return;
+            }
+
+            $reparacion = Reparacion::find($notificacion->reparacion_id);
+   
+            if(!$reparacion){
+                echo json_encode(['type'=>'error', 'msg'=>'Hubo un error, Intenta nuevamente']);
+                return;
+            }
+            if($reparacion->estado==2){
+                echo json_encode(['type'=>'error', 'msg'=>'la reparación ya ha sido cerrada']);
+                return;
+            }
+            $imagenes_actuales = $notificacion->imagenes;
+         
+           
+
+            
+            if(!empty($_FILES['imagenes']['tmp_name'][0])){
+
+                if($notificacion->imagenes!=""){
+                    $arrayImagenes = explode(',',$notificacion->imagenes);
+                    $carpeta_imagenes = '../public/img/notificaciones';
+                    
+                    foreach($arrayImagenes as $imagen){
+                    
+                        
+                        unlink($carpeta_imagenes.'/'.$imagen.".png");
+                        unlink($carpeta_imagenes.'/'.$imagen.".webp");
+                    }
+                }
+               
+           
+
+
+                $totalArchivos = count($_FILES["imagenes"]["name"]);
+                for($i=0; $i<$totalArchivos; $i++){
+               
+                    $carpeta_imagenes = '../public/img/notificaciones';
+            
+                    //crear la carpeta si no existe
+                    if(!is_dir($carpeta_imagenes)){
+                        mkdir($carpeta_imagenes, 0777, true);
+                    }
+    
+                    $imagen_png = Image::make($_FILES['imagenes']['tmp_name'][$i])->fit(800,800)->encode('png', 80); //imagen en png
+                    $imagen_webp = Image::make($_FILES['imagenes']['tmp_name'][$i])->fit(800,800)->encode('webp', 80); //imagen en jpg
+                  
+    
+                    $nombre_imagen = md5(uniqid(rand(),true));
+         
+                    $imagen_png->save($carpeta_imagenes.'/'.$nombre_imagen.".png");
+                    $imagen_webp->save($carpeta_imagenes.'/'.$nombre_imagen.".webp");
+                    $array_nombre_imagenes[] = $nombre_imagen;
+    
+                }
+                $_POST['imagenes'] =implode(',', $array_nombre_imagenes);
+                // $_POST['cliente_id'] = $reparacion->cliente_id;
+
+                $notificacion->sincronizar($_POST);
+                $resultado = $notificacion->guardar();
+
+                if($resultado){
+                    echo json_encode(['type'=>'success', 'msg'=>'La notificación ha sido actualizada con Éxito']);
+                    return;
+                }
+                echo json_encode(['type'=>'error', 'msg'=>'Hubo un error, Intenta nuevamente']);
+                return;
+                    
+            }else{
+             
+                $_POST['imagenes'] = $imagenes_actuales;
+
+                $notificacion->sincronizar($_POST);
+            
+                $resultado = $notificacion->guardar();
+
+                if($resultado){
+                    echo json_encode(['type'=>'success', 'msg'=>'La notificación ha sido actualizada con Éxito']);
+                    return;
+                }
+                echo json_encode(['type'=>'error', 'msg'=>'Hubo un error, Intenta nuevamente']);
+                return;
+            }
+            
+           
+        }
+
+        public static function eliminarNotificacion(){
+            
+            $id = $_POST['id'];
+            $id = filter_var($id, FILTER_VALIDATE_INT);
+            if(!$id){
+                echo json_encode(['type'=>'error', 'msg'=>'Hubo un error, Intenta nuevamente']);
+                return;
+            }
+            
+            $notificacion = Notificacion::find($_POST['id']);
+           
+            if(!$notificacion){
+                echo json_encode(['type'=>'error', 'msg'=>'Hubo un error, Intenta nuevamente']);
+                return;
+            }
+            $notificacion_auxiliar = $notificacion;
+            $resultado = $notificacion->eliminar();
+            if(!$resultado){
+                echo json_encode(['type'=>'error', 'msg'=>'Hubo un error, Intenta nuevamente']);
+                return;
+             
+            }
+
+            if($notificacion_auxiliar->imagenes!=""){
+                $arrayImagenes = explode(',',$notificacion_auxiliar->imagenes);
+                $carpeta_imagenes = '../public/img/notificaciones';
+                
+                foreach($arrayImagenes as $imagen){
+                
+                    
+                    unlink($carpeta_imagenes.'/'.$imagen.".png");
+                    unlink($carpeta_imagenes.'/'.$imagen.".webp");
+                }
+            }
+
+            echo json_encode(['type'=>'success', 'msg'=>'La notificación se ha eliminado con exito']);
+            return;
+
+
         }
 
         public static function notificaciones(){

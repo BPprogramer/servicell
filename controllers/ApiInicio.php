@@ -23,11 +23,11 @@ use Model\Reparacion;
             $cerradas = Reparacion::total('estado', 2);
 
             $info = [
-                'ingresos_totales'=>$ingresos_totales['suma'],
-                'gastos_totales'=>$gastos_totales['suma'],
-                'ganancias'=>$ingresos_totales['suma']-$gastos_totales['suma'],
-                'ganancias_mes_actual'=>$ganancias_mes_actual,
-                'ganancias_3_meses'=>$ganancias_3_meses,
+                'ingresos_totales'=>$ingresos_totales['suma']??0,
+                'gastos_totales'=>$gastos_totales['suma']??0,
+                'ganancias'=>$ingresos_totales['suma']??0-$gastos_totales['suma']??0,
+                'ganancias_mes_actual'=>$ganancias_mes_actual??0,
+                'ganancias_3_meses'=>$ganancias_3_meses??0,
                 'pendientes'=>$pendientes,
                 'reparados'=>$reparadas,
                 'cerrados'=>$cerradas

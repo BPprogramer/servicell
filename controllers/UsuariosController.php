@@ -22,13 +22,16 @@ class UsuariosController {
 
 
     public static function login(Router $router) {
+     
         if(is_admin()){
             header('Location:/inicio');
         }
+   
         if(is_cliente()){
             header('Location:/clientes');
             return;
         }
+    
 
         $router->render('auth/login', [
             'titulo' => 'Iniciar Sesión'
