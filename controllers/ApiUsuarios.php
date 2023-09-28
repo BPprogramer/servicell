@@ -5,7 +5,14 @@ use Model\Usuario;
 
     class ApiUsuarios{
         public static function usuarios(){
-            $usuarios = Usuario::all();
+            $usuarios_todos = Usuario::all();
+            $usuarios = array_filter($usuarios_todos, function($usuario){
+                if($usuario->id!=1 ){
+                    return $usuario;
+                }
+          
+            });
+            
             
             $i=0;
             $datoJson = '{
