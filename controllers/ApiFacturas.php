@@ -248,7 +248,7 @@ use Model\Reparacion;
                 $pdf->Ln(7);
                 $pdf->SetFont('dejavusans','',10);
                 $pdf->setCellPaddings(4, 2, 4, 2);
-                $pdf->MultiCell(263, 5, $reparacion->observacion, 1, 'L', 1, 0, '', '', true);
+                $pdf->MultiCell(263, 5, $reparacion->observacion, 'LRB', 'L', 1, 0, '', '', true);
           
                 
 
@@ -581,7 +581,7 @@ use Model\Reparacion;
                 $pdf->Ln(7);
                 $pdf->SetFont('dejavusans','',10);
                 $pdf->setCellPaddings(4, 2, 4, 2);
-                $pdf->MultiCell(263, 5, $reparacion->observacion, 1, 'L', 1, 0, '', '', true);
+                $pdf->MultiCell(263, 5, $reparacion->observacion, 'LRB', 'L', 1, 0, '', '', true);
           
                 
                 $pdf->Ln();
