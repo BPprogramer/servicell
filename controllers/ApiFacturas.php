@@ -40,7 +40,7 @@ use Model\Reparacion;
                 // # Logo de la empresa formato png #
     
             
-                $pdf->Image('../public/img_logo/LOGO_5.jpg',17,10,80,70,'JPG');
+                $pdf->Image('../public/img_logo/LOGO_5.jpg',17,10,50,50,'JPG');
 
                 $pdf->Ln(0);
         
@@ -49,63 +49,62 @@ use Model\Reparacion;
 
                 // # Encabezado y datos de la empresa #
                 $pdf->Cell(87);
-                $pdf->SetFont('dejavusans','B',11);
+                $pdf->SetFont('dejavusans','B',18);
                 $pdf->SetTextColor(0,0,0);
-                $pdf->Cell(150,10,'Servicio técnico especializado - accesorios y repuestos - venta de celulares - ',0,0,'C');
+                $pdf->Cell(150,10,'Servicio Técnico Profesional en Telefonía Móvil',0,0,'C');
 
-                $pdf->Ln(7);
-                $pdf->Cell(87);
-                $pdf->Cell(150,10,'tablets - computadoras - memorias - reproductores mp3  ',0,0,'C');
             
-                $pdf->Ln(7);
+                $pdf->Ln(10);
             
                 $pdf->Cell(87);
-                $pdf->SetFont('dejavusans','B',10);
+                $pdf->SetFont('dejavusans','B',12);
                 $pdf->SetTextColor(0,0,0);
-                $pdf->Cell(150,10,'Nit: 98.355.002-2',0,0,'C');
-                $pdf->Ln(7);
+                $pdf->Cell(150,10,'Carrera 4a#4-51 Primera Planta Hotel San Francisco - El Tablón de Gómez',0,0,'C');
+                $pdf->Ln(10);
             
                 $pdf->Cell(87);
-                $pdf->SetFont('dejavusans','B',10);
+                $pdf->SetFont('dejavusans','B',12);
                 $pdf->SetTextColor(0,0,0);
-                $pdf->Cell(150,10,'Matrícula Mercantil: 141377-1',0,0,'C');
+                $pdf->Cell(150,10,'WhatsApp: 3186110319 -  Email: servicelltablon@outlook.es',0,0,'C');
 
 
         
-                $pdf->Ln(7);
+                $pdf->Ln(10);
                 $pdf->Cell(87);
-                $pdf->SetFont('dejavusans','B',10);
+                $pdf->SetFont('dejavusans','B',18);
                 $pdf->SetTextColor(0,0,0);
-                $pdf->Cell(150,10,'ALEXANDER VELASQUEZ M.',0,0,'C');
+                $pdf->Cell(150,10,'ALEXANDER VELASQUEZ MARTINEZ',0,0,'C');
     
-                $pdf->Ln(7);
-                $pdf->Cell(87);
-                $pdf->SetFont('dejavusans','B',10);
-                $pdf->SetTextColor(0,0,0);
-                $pdf->Cell(150,10,'WhatsApp: 3186110319',0,0,'C');
-                $pdf->Ln(7);
-                $pdf->Cell(87);
-                $pdf->SetFont('dejavusans','B',10);
-                $pdf->SetTextColor(0,0,0);
-                $pdf->Cell(150,10,'servicelltablon@outlook.es',0,0,'C');
-                $pdf->Ln(7);
-                $pdf->Cell(87);
-                $pdf->SetFont('dejavusans','B',10);
-                $pdf->SetTextColor(0,0,0);
-                $pdf->Cell(150,10,'servicell.zonasoftware.online',0,0,'C');
-                $pdf->Ln(7);
-                $pdf->Cell(87);
-                $pdf->SetFont('dejavusans','B',10);
-                $pdf->SetTextColor(0,0,0);
-                $pdf->Cell(150,10,'El Tablón de Gómez',0,0,'C');
-                $pdf->Ln(7);
-                $pdf->Cell(87);
-                $pdf->SetFont('dejavusans','B',10);
-                $pdf->SetTextColor(0,0,0);
-                $pdf->Cell(150,10,'Carrera 4a #4 - 51 Hotel San Francisco - Primer Pisi',0,0,'C');
+   
+            
+               
 
-                $pdf->Ln(20);
+                $pdf->Ln(25);
 
+                $pdf->SetLineWidth(0.1);
+                $pdf->SetFont('dejavusans','B',10);
+                $pdf->SetFillColor(197,211,232);
+             
+
+        
+                $pdf->Cell(30,7,"  FECHA",1,0,'L',true);
+              
+
+                
+                $pdf->SetLineWidth(0.1);
+                $pdf->SetFont('dejavusans','B',10);
+                $pdf->SetFillColor(255,255,255);
+                $pdf->Cell(30,7,"  $reparacion->fecha_ingreso",'TRB',0,0,'L',true);
+                $pdf->Cell(143);
+                $pdf->SetFont('dejavusans','B',10);
+                $pdf->SetFillColor(197,211,232);
+                $pdf->Cell(30,7,"  ORDEN",1,0,'LR',true);
+                $pdf->SetFont('dejavusans','B',10);
+                $pdf->SetFillColor(255,255,255);
+             
+                $pdf->Cell(30,7,"  $reparacion->codigo",'TRB',0,0,'L',true);                
+
+                $pdf->Ln(10);
               //informacion cCliente
                 $pdf->SetLineWidth(0.1);
                 $pdf->SetFont('dejavusans','B',10);
@@ -113,127 +112,217 @@ use Model\Reparacion;
                 $pdf->SetDrawColor(0,0,0);
                 $pdf->SetTextColor(0,0,0);
 
-                $pdf->Cell(130,7,"Información del Cliente",1,0,'C',true);
+                $pdf->Cell(130,7,"INFORMACION DEL CLIENTE",1,0,'C',true);
                 $pdf->Cell(3);
-                $pdf->Cell(130,7,"Información del Dispositivo",1,0,'C',true);
+                $pdf->Cell(130,7,"INFORMACION DEL DISPOSITIVO",1,0,'C',true);
 
                 $pdf->Ln(7);
     
                 $pdf->SetFont('dejavusans','',10);
-                $pdf->Cell(30,7,"  Usuario: ", 'LT',0,0,'L',true);
+                $pdf->SetFillColor(197,211,232);
+                $pdf->Cell(30,7,"  Usuario: ", 'LTR',0,0,'L',true);
                 $pdf->SetFont('dejavusans','B',10);
-                $pdf->Cell(100,7,"$reparacion->nombre",'TR',0,0,'L',true);
+                $pdf->SetFillColor(255,255,255);
+                $pdf->Cell(100,7,"  ".strtoupper($reparacion->nombre),'TR',0,0,'L',true);
 
                 $pdf->Cell(3);
                 $pdf->SetFont('dejavusans','',10);
-                $pdf->Cell(30,7,"  Marca: ", 'LT',0,0,'L',true);
+                $pdf->SetFillColor(197,211,232);
+                $pdf->Cell(30,7,"  Marca: ", 'LTR',0,0,'L',true);
+                $pdf->SetFillColor(255,255,255);
                 $pdf->SetFont('dejavusans','B',10);
-                $pdf->Cell(100,7,"$reparacion->marca",'TR',0,0,'L',true);
+                $pdf->Cell(100,7,"  ".strtoupper($reparacion->marca),'TR',0,0,'L',true);
 
                 $pdf->Ln(7);
     
                 $pdf->SetFont('dejavusans','',10);
-                $pdf->Cell(30,7,"  Cédula / NIT: ", 'LT',0,0,'L',true);
+                $pdf->SetFillColor(197,211,232);
+                $pdf->Cell(30,7,"  Cédula / NIT: ", 'LTR',0,0,'L',true);
                 $pdf->SetFont('dejavusans','B',10);
-                $pdf->Cell(100,7,"$reparacion->cedula_nit",'TR',0,0,'L',true);
+                $pdf->SetFillColor(255,255,255);
+                $pdf->Cell(100,7,"  $reparacion->cedula_nit",'TR',0,0,'L',true);
 
                 $pdf->Cell(3);
                 $pdf->SetFont('dejavusans','',10);
-                $pdf->Cell(30,7,"  Modelo: ", 'LT',0,0,'L',true);
+                $pdf->SetFillColor(197,211,232);
+                $pdf->Cell(30,7,"  Modelo: ", 'LTR',0,0,'L',true);
                 $pdf->SetFont('dejavusans','B',10);
-                $pdf->Cell(100,7,"$reparacion->modelo",'TR',0,0,'L',true);
+                $pdf->SetFillColor(255,255,255);
+                $pdf->Cell(100,7,"  ".strtoupper($reparacion->modelo),'TR',0,0,'L',true);
 
                 $pdf->Ln(7);
     
                 $pdf->SetFont('dejavusans','',10);
-                $pdf->Cell(30,7,"  Celular: ", 'LT',0,0,'L',true);
+                $pdf->SetFillColor(197,211,232);
+                $pdf->Cell(30,7,"  Celular: ", 'LTR',0,0,'L',true);
                 $pdf->SetFont('dejavusans','B',10);
-                $pdf->Cell(100,7,"$reparacion->celular",'TRB',0,0,'L',true);
+                $pdf->SetFillColor(255,255,255);
+                $pdf->Cell(100,7,"  $reparacion->celular",'TRB',0,0,'L',true);
 
                 $pdf->Cell(3);
                 $pdf->SetFont('dejavusans','',10);
-                $pdf->Cell(30,7,"  IMEI 1: ", 'LT',0,0,'L',true);
+                $pdf->SetFillColor(197,211,232);
+                $pdf->Cell(30,7,"  IMEI 1: ", 'LTR',0,0,'L',true);
                 $pdf->SetFont('dejavusans','B',10);
-                $pdf->Cell(100,7,"$reparacion->imei_1",'TRB',0,0,'L',true);
+                $pdf->SetFillColor(255,255,255);
+                $pdf->Cell(100,7,"  $reparacion->imei_1",'TRB',0,0,'L',true);
                 $pdf->Ln(7);
     
                 $pdf->SetFont('dejavusans','',10);
-                $pdf->Cell(30,7,"  Dirección: ", 'LTB',0,0,'L',true);
+                $pdf->SetFillColor(197,211,232);
+                $pdf->Cell(30,7,"  Dirección: ", 'LTRB',0,0,'L',true);
                 $pdf->SetFont('dejavusans','B',10);
-                $pdf->Cell(100,7,"$reparacion->direccion",'TRB',0,0,'L',true);
+                $pdf->SetFillColor(255,255,255);
+                $pdf->Cell(100,7,"  ".strtoupper($reparacion->direccion),'TRB',0,0,'L',true);
 
                 $pdf->Cell(3);
                 $pdf->SetFont('dejavusans','',10);
-                $pdf->Cell(30,7,"  IMEI 2: ", 'LTB',0,0,'L',true);
+                $pdf->SetFillColor(197,211,232);
+                $pdf->Cell(30,7,"  IMEI 2: ", 'LTBR',0,0,'L',true);
                 $pdf->SetFont('dejavusans','B',10);
-                $pdf->Cell(100,7,"$reparacion->imei_2",'TRB',0,0,'L',true);
+                $pdf->SetFillColor(255,255,255);
+                $pdf->Cell(100,7,"  $reparacion->imei_2",'TRB',0,0,'L',true);
            
       
        
                 // $pdf->SetFont('dejavusans','B',10);
                 // $pdf->Cell(54,6,$reparacion->marca.'  ',1,0,'R',true);
                 $pdf->Ln(15);
-                $pdf->Cell(263,7,"Falla Reportada por el Cliente:",1,0,'C',true);
-                $pdf->Ln();
-                
-                $pdf->SetFont('dejavusans','',10);
-                $pdf->MultiCell(263, 7, $reparacion->falla, 1, 'L', 1, 0, '', '', true);
-                $pdf->SetFont('dejavusans','B',10);
-                
-                $pdf->Ln();
-                $pdf->Cell(263,7,"Procedimiento a realizar:",1,0,'C',true);
-                $pdf->Ln();
+                $pdf->SetFillColor(197,211,232);
+                $pdf->Cell(75,7,"  FALLA QUE REPORTA EL CLIENTE: ", 'LTBR',0,0,'L',true);
+                $pdf->SetFillColor(255,255,255);
 
                 $pdf->SetFont('dejavusans','',10);
-                $pdf->MultiCell(263, 7, $reparacion->proceso, 1, 'L', 1, 0, '', '', true);
+                $pdf->Cell(188,7,"  $reparacion->falla", 'LTBR',0,0,'L',true);
                 $pdf->SetFont('dejavusans','B',10);
-                
-                $pdf->Ln();
-                $pdf->Cell(263,7,"Observaciones:",1,0,'C',true);
-                $pdf->Ln();
-
-                $pdf->SetFont('dejavusans','',10);
-                $pdf->MultiCell(263, 7, $reparacion->observacion, 1, 'L', 1, 0, '', '', true);
-
-                $pdf->Ln();
-                $pdf->SetFont('dejavusans','B',10);
-                $pdf->Cell(263,7,"Accesorios",1,0,'C',true);
                 $pdf->Ln(7);
-         
+                $pdf->SetFillColor(197,211,232);
+                $pdf->Cell(75,7,"  PROCEDIMIENTO A REALIZAR: ", 'LTBR',0,0,'L',true);
+                $pdf->SetFillColor(255,255,255);
+
                 $pdf->SetFont('dejavusans','',10);
-                $pdf->Cell(263,7,$string,1,0,'C',true);
+                $pdf->Cell(188,7,"  $reparacion->proceso", 'LTBR',0,0,'L',true);
+                $pdf->SetFont('dejavusans','B',10);
+                $pdf->Ln(7);
+          
+                $pdf->SetFillColor(197,211,232);
+                $pdf->Cell(75,7,"  ACCESORIOS: ", 'LTBR',0,0,'L',true);
+                $pdf->SetFillColor(255,255,255);
+
+                $pdf->SetFont('dejavusans','',10);
+                $pdf->Cell(188,7,"  $string", 'LTBR',0,0,'L',true);
+                $pdf->SetFont('dejavusans','B',10);
+                $pdf->Ln(14);
+                $pdf->SetFillColor(197,211,232);
+                $pdf->Cell(75,7,"  PAGINA PARA SEGUIMIENTO: ", 'LTBR',0,0,'L',true);
+                $pdf->SetFillColor(255,255,255);
+
+                $pdf->SetFont('dejavusans','',10);
+                $pdf->Cell(57,7,"  servicell.zonasoftware.online", 'LTBR',0,0,'L',true);
+                $pdf->SetFont('dejavusans','B',10);
+                $pdf->SetFillColor(197,211,232);
+                $pdf->Cell(30,7,"  USUARIO: ", 'TBR',0,0,'L',true);
+                $pdf->SetFillColor(255,255,255);
+                $pdf->SetFillColor(255,255,255);
+
+                $pdf->SetFont('dejavusans','',10);
+                $pdf->Cell(30,7,"  $reparacion->celular", 'LTBR',0,0,'L',true);
+                $pdf->SetFont('dejavusans','B',10);
+                $pdf->SetFillColor(197,211,232);
+                $pdf->Cell(36,7,"  CONTRASEÑA: ", 'TBR',0,0,'L',true);
+           
+                $pdf->SetFillColor(255,255,255);
+
+                $pdf->SetFont('dejavusans','',10);
+                $pdf->Cell(35,7,"  $reparacion->cedula_nit", 'LTBR',0,0,'L',true);
+
+
+
+
+                $pdf->Ln();
+                $pdf->Ln();
+         
+                $pdf->SetFont('dejavusans','B',10);
+  
+                $pdf->Cell(263,7,"  OBSERVACIONES: ", 'LTR',0,0,'L',true);
+                $pdf->Ln(7);
+                $pdf->SetFont('dejavusans','',10);
+                $pdf->setCellPaddings(4, 2, 4, 2);
+                $pdf->MultiCell(263, 5, $reparacion->observacion, 1, 'L', 1, 0, '', '', true);
+          
+                
+
+
+
+            
+       
          
                 $pdf->Ln();
+
                 $pdf->Ln(7);
+        
 
                 /* Informacion a pagar */
 
            
     
-                $pdf->Ln(7);
-                $pdf->Cell(133);
-                $pdf->SetFont('dejavusans','',10);
-                $pdf->Cell(40,7,"  Fecha de Ingreso: ", 'LTR',0,0,'L',true);
+                $pdf->setCellPaddings(0, 0, 0, 0);
                 $pdf->SetFont('dejavusans','B',10);
-                $pdf->Cell(90,7,$reparacion->fecha_ingreso.'  ','TR',0,'R',0,true);
-                $pdf->Ln(7);
-                $pdf->Cell(133);
-                $pdf->SetFont('dejavusans','',10);
-                $pdf->Cell(40,7,"  Valor Convenido: ", 'LTR',0,0,'L',true);
+                $pdf->SetFillColor(197,211,232);
+                $pdf->Cell(75,7,"  VALOR CONVENIDO: ", 'TBLR',0,0,'L',true);
                 $pdf->SetFont('dejavusans','B',10);
-                $pdf->Cell(90,7,'$'.number_format($reparacion->valor_convenido).'  ','TR',0,'R',0,true);
-                $pdf->Ln(7);
-                $pdf->Cell(133);
+                $pdf->SetFillColor(255,255,255);
+                $pdf->Cell(57,7,'  $'.number_format($reparacion->valor_convenido).'  ','TBLR',0,0,'L',true);
+   
+
+                $pdf->SetFillColor(197,211,232);
+                $pdf->Cell(30,7,"  ABONO: ", 'TBR',0,0,'L',true);
+                $pdf->SetFillColor(255,255,255);
+                $pdf->SetFillColor(255,255,255);
+
                 $pdf->SetFont('dejavusans','',10);
-                $pdf->Cell(40,7,"  Abono: ", 'LTR',0,0,'L',true);
+                $pdf->Cell(30,7,'  $'.number_format($reparacion->abono), 'LTBR',0,0,'L',true);
                 $pdf->SetFont('dejavusans','B',10);
-                $pdf->Cell(90,7,'$'.number_format($reparacion->abono).'  ','TR',0,'R',0,true);
-                $pdf->Ln(7);
-                $pdf->Cell(133);
+                $pdf->SetFillColor(197,211,232);
+                $pdf->Cell(36,7,"  SALDO: ", 'TBR',0,0,'L',true);
+           
+                $pdf->SetFillColor(255,255,255);
+
                 $pdf->SetFont('dejavusans','',10);
-                $pdf->Cell(40,7,"  Saldo: ", 'LTRB',0,0,'L',true);
+                $pdf->Cell(35,7,'  $'.number_format($reparacion->saldo), 'LTBR',0,0,'L',true);
+
+                  
+                $pdf->Ln(7); 
+                $pdf->Ln(7); 
+                $pdf->SetFont('dejavusans','',10);
+                $pdf->SetFillColor(197,211,232);
+            
+                $pdf->Cell(90,30,"  ", '',0,0,'L',true);
+
+                
+                $pdf->Cell(83);
+
+                $pdf->Cell(90,30,"  ", '',0,0,'L',true);
+
+                $pdf->Ln(); 
+                $pdf->SetFillColor(255,255,255);
+
                 $pdf->SetFont('dejavusans','B',10);
-                $pdf->Cell(90,7,'$'.number_format($reparacion->saldo).'  ','TRB',0,'R',0,true);
+        
+                $pdf->Cell(90,10,'FIRMA DEL VENDEDOR',0,0,'C', true);
+
+                $pdf->SetFont('dejavusans','',10);
+                $pdf->SetFillColor(197,211,232);
+            
+ 
+                $pdf->SetFillColor(255,255,255);
+                $pdf->SetFont('dejavusans','B',10);
+                $pdf->Cell(83);
+                $pdf->Cell(90,10,'RECIBI CONFORME',0,0,'C');
+
+
+
+
 
                
                 $pdf->Ln(7); 
@@ -282,7 +371,7 @@ use Model\Reparacion;
                 // # Logo de la empresa formato png #
     
             
-                $pdf->Image('../public/img_logo/LOGO_5.jpg',17,10,80,70,'JPG');
+                $pdf->Image('../public/img_logo/LOGO_5.jpg',17,10,50,50,'JPG');
 
                 $pdf->Ln(0);
         
@@ -291,63 +380,62 @@ use Model\Reparacion;
 
                 // # Encabezado y datos de la empresa #
                 $pdf->Cell(87);
-                $pdf->SetFont('dejavusans','B',11);
+                $pdf->SetFont('dejavusans','B',18);
                 $pdf->SetTextColor(0,0,0);
-                $pdf->Cell(150,10,'Servicio técnico especializado - accesorios y repuestos - venta de celulares - ',0,0,'C');
+                $pdf->Cell(150,10,'Servicio Técnico Profesional en Telefonía Móvil',0,0,'C');
 
-                $pdf->Ln(7);
-                $pdf->Cell(87);
-                $pdf->Cell(150,10,'tablets - computadoras - memorias - reproductores mp3  ',0,0,'C');
             
-                $pdf->Ln(7);
+                $pdf->Ln(10);
             
                 $pdf->Cell(87);
-                $pdf->SetFont('dejavusans','B',10);
+                $pdf->SetFont('dejavusans','B',12);
                 $pdf->SetTextColor(0,0,0);
-                $pdf->Cell(150,10,'Nit: 98.355.002-2',0,0,'C');
-                $pdf->Ln(7);
+                $pdf->Cell(150,10,'Carrera 4a#4-51 Primera Planta Hotel San Francisco - El Tablón de Gómez',0,0,'C');
+                $pdf->Ln(10);
             
                 $pdf->Cell(87);
-                $pdf->SetFont('dejavusans','B',10);
+                $pdf->SetFont('dejavusans','B',12);
                 $pdf->SetTextColor(0,0,0);
-                $pdf->Cell(150,10,'Matrícula Mercantil: 141377-1',0,0,'C');
+                $pdf->Cell(150,10,'WhatsApp: 3186110319 -  Email: servicelltablon@outlook.es',0,0,'C');
 
 
         
-                $pdf->Ln(7);
+                $pdf->Ln(10);
                 $pdf->Cell(87);
-                $pdf->SetFont('dejavusans','B',10);
+                $pdf->SetFont('dejavusans','B',18);
                 $pdf->SetTextColor(0,0,0);
-                $pdf->Cell(150,10,'ALEXANDER VELASQUEZ M.',0,0,'C');
+                $pdf->Cell(150,10,'ALEXANDER VELASQUEZ MARTINEZ',0,0,'C');
     
-                $pdf->Ln(7);
-                $pdf->Cell(87);
-                $pdf->SetFont('dejavusans','B',10);
-                $pdf->SetTextColor(0,0,0);
-                $pdf->Cell(150,10,'WhatsApp: 3186110319',0,0,'C');
-                $pdf->Ln(7);
-                $pdf->Cell(87);
-                $pdf->SetFont('dejavusans','B',10);
-                $pdf->SetTextColor(0,0,0);
-                $pdf->Cell(150,10,'servicelltablon@outlook.es',0,0,'C');
-                $pdf->Ln(7);
-                $pdf->Cell(87);
-                $pdf->SetFont('dejavusans','B',10);
-                $pdf->SetTextColor(0,0,0);
-                $pdf->Cell(150,10,'servicell.zonasoftware.online',0,0,'C');
-                $pdf->Ln(7);
-                $pdf->Cell(87);
-                $pdf->SetFont('dejavusans','B',10);
-                $pdf->SetTextColor(0,0,0);
-                $pdf->Cell(150,10,'El Tablón de Gómez',0,0,'C');
-                $pdf->Ln(7);
-                $pdf->Cell(87);
-                $pdf->SetFont('dejavusans','B',10);
-                $pdf->SetTextColor(0,0,0);
-                $pdf->Cell(150,10,'Carrera 4a #4 - 51 Hotel San Francisco - Primer Pisi',0,0,'C');
+   
+            
+               
 
-                $pdf->Ln(20);
+                $pdf->Ln(25);
 
+                $pdf->SetLineWidth(0.1);
+                $pdf->SetFont('dejavusans','B',10);
+                $pdf->SetFillColor(197,211,232);
+             
+
+        
+                $pdf->Cell(30,7,"  FECHA",1,0,'L',true);
+              
+
+                
+                $pdf->SetLineWidth(0.1);
+                $pdf->SetFont('dejavusans','B',10);
+                $pdf->SetFillColor(255,255,255);
+                $pdf->Cell(30,7,"  $reparacion->fecha_ingreso",'TRB',0,0,'L',true);
+                $pdf->Cell(143);
+                $pdf->SetFont('dejavusans','B',10);
+                $pdf->SetFillColor(197,211,232);
+                $pdf->Cell(30,7,"  ORDEN",1,0,'LR',true);
+                $pdf->SetFont('dejavusans','B',10);
+                $pdf->SetFillColor(255,255,255);
+             
+                $pdf->Cell(30,7,"  $reparacion->codigo",'TRB',0,0,'L',true);                
+
+                $pdf->Ln(10);
               //informacion cCliente
                 $pdf->SetLineWidth(0.1);
                 $pdf->SetFont('dejavusans','B',10);
@@ -355,154 +443,255 @@ use Model\Reparacion;
                 $pdf->SetDrawColor(0,0,0);
                 $pdf->SetTextColor(0,0,0);
 
-                $pdf->Cell(130,7,"Información del Cliente",1,0,'C',true);
+                $pdf->Cell(130,7,"INFORMACION DEL CLIENTE",1,0,'C',true);
                 $pdf->Cell(3);
-                $pdf->Cell(130,7,"Información del Dispositivo",1,0,'C',true);
+                $pdf->Cell(130,7,"INFORMACION DEL DISPOSITIVO",1,0,'C',true);
 
                 $pdf->Ln(7);
     
                 $pdf->SetFont('dejavusans','',10);
-                $pdf->Cell(30,7,"  Usuario: ", 'LT',0,0,'L',true);
+                $pdf->SetFillColor(197,211,232);
+                $pdf->Cell(30,7,"  Usuario: ", 'LTR',0,0,'L',true);
                 $pdf->SetFont('dejavusans','B',10);
-                $pdf->Cell(100,7,"$reparacion->nombre",'TR',0,0,'L',true);
+                $pdf->SetFillColor(255,255,255);
+                $pdf->Cell(100,7,"  ".strtoupper($reparacion->nombre),'TR',0,0,'L',true);
 
                 $pdf->Cell(3);
                 $pdf->SetFont('dejavusans','',10);
-                $pdf->Cell(30,7,"  Marca: ", 'LT',0,0,'L',true);
+                $pdf->SetFillColor(197,211,232);
+                $pdf->Cell(30,7,"  Marca: ", 'LTR',0,0,'L',true);
+                $pdf->SetFillColor(255,255,255);
                 $pdf->SetFont('dejavusans','B',10);
-                $pdf->Cell(100,7,"$reparacion->marca",'TR',0,0,'L',true);
+                $pdf->Cell(100,7,"  ".strtoupper($reparacion->marca),'TR',0,0,'L',true);
 
                 $pdf->Ln(7);
     
                 $pdf->SetFont('dejavusans','',10);
-                $pdf->Cell(30,7,"  Cédula / NIT: ", 'LT',0,0,'L',true);
+                $pdf->SetFillColor(197,211,232);
+                $pdf->Cell(30,7,"  Cédula / NIT: ", 'LTR',0,0,'L',true);
                 $pdf->SetFont('dejavusans','B',10);
-                $pdf->Cell(100,7,"$reparacion->cedula_nit",'TR',0,0,'L',true);
+                $pdf->SetFillColor(255,255,255);
+                $pdf->Cell(100,7,"  $reparacion->cedula_nit",'TR',0,0,'L',true);
 
                 $pdf->Cell(3);
                 $pdf->SetFont('dejavusans','',10);
-                $pdf->Cell(30,7,"  Modelo: ", 'LT',0,0,'L',true);
+                $pdf->SetFillColor(197,211,232);
+                $pdf->Cell(30,7,"  Modelo: ", 'LTR',0,0,'L',true);
                 $pdf->SetFont('dejavusans','B',10);
-                $pdf->Cell(100,7,"$reparacion->modelo",'TR',0,0,'L',true);
+                $pdf->SetFillColor(255,255,255);
+                $pdf->Cell(100,7,"  ".strtoupper($reparacion->modelo),'TR',0,0,'L',true);
 
                 $pdf->Ln(7);
     
                 $pdf->SetFont('dejavusans','',10);
-                $pdf->Cell(30,7,"  Celular: ", 'LT',0,0,'L',true);
+                $pdf->SetFillColor(197,211,232);
+                $pdf->Cell(30,7,"  Celular: ", 'LTR',0,0,'L',true);
                 $pdf->SetFont('dejavusans','B',10);
-                $pdf->Cell(100,7,"$reparacion->celular",'TRB',0,0,'L',true);
+                $pdf->SetFillColor(255,255,255);
+                $pdf->Cell(100,7,"  $reparacion->celular",'TRB',0,0,'L',true);
 
                 $pdf->Cell(3);
                 $pdf->SetFont('dejavusans','',10);
-                $pdf->Cell(30,7,"  IMEI 1: ", 'LT',0,0,'L',true);
+                $pdf->SetFillColor(197,211,232);
+                $pdf->Cell(30,7,"  IMEI 1: ", 'LTR',0,0,'L',true);
                 $pdf->SetFont('dejavusans','B',10);
-                $pdf->Cell(100,7,"$reparacion->imei_1",'TRB',0,0,'L',true);
+                $pdf->SetFillColor(255,255,255);
+                $pdf->Cell(100,7,"  $reparacion->imei_1",'TRB',0,0,'L',true);
                 $pdf->Ln(7);
     
                 $pdf->SetFont('dejavusans','',10);
-                $pdf->Cell(30,7,"  Dirección: ", 'LTB',0,0,'L',true);
+                $pdf->SetFillColor(197,211,232);
+                $pdf->Cell(30,7,"  Dirección: ", 'LTRB',0,0,'L',true);
                 $pdf->SetFont('dejavusans','B',10);
-                $pdf->Cell(100,7,"$reparacion->direccion",'TRB',0,0,'L',true);
+                $pdf->SetFillColor(255,255,255);
+                $pdf->Cell(100,7,"  ".strtoupper($reparacion->direccion),'TRB',0,0,'L',true);
 
                 $pdf->Cell(3);
                 $pdf->SetFont('dejavusans','',10);
-                $pdf->Cell(30,7,"  IMEI 2: ", 'LTB',0,0,'L',true);
+                $pdf->SetFillColor(197,211,232);
+                $pdf->Cell(30,7,"  IMEI 2: ", 'LTBR',0,0,'L',true);
                 $pdf->SetFont('dejavusans','B',10);
-                $pdf->Cell(100,7,"$reparacion->imei_2",'TRB',0,0,'L',true);
+                $pdf->SetFillColor(255,255,255);
+                $pdf->Cell(100,7,"  $reparacion->imei_2",'TRB',0,0,'L',true);
            
       
        
                 // $pdf->SetFont('dejavusans','B',10);
                 // $pdf->Cell(54,6,$reparacion->marca.'  ',1,0,'R',true);
                 $pdf->Ln(15);
-                $pdf->Cell(263,7,"Falla Reportada por el Cliente:",1,0,'C',true);
-                $pdf->Ln();
-                
-                $pdf->SetFont('dejavusans','',10);
-                $pdf->MultiCell(263, 7, $reparacion->falla, 1, 'L', 1, 0, '', '', true);
-                $pdf->SetFont('dejavusans','B',10);
-                
-                $pdf->Ln();
-                $pdf->Cell(263,7,"Procedimiento a realizar:",1,0,'C',true);
-                $pdf->Ln();
+                $pdf->SetFillColor(197,211,232);
+                $pdf->Cell(75,7,"  FALLA QUE REPORTA EL CLIENTE: ", 'LTBR',0,0,'L',true);
+                $pdf->SetFillColor(255,255,255);
 
                 $pdf->SetFont('dejavusans','',10);
-                $pdf->MultiCell(263, 7, $reparacion->proceso, 1, 'L', 1, 0, '', '', true);
+                $pdf->Cell(188,7,"  $reparacion->falla", 'LTBR',0,0,'L',true);
                 $pdf->SetFont('dejavusans','B',10);
-                
-                $pdf->Ln();
-                $pdf->Cell(263,7,"Observaciones:",1,0,'C',true);
-                $pdf->Ln();
-
-                $pdf->SetFont('dejavusans','',10);
-                $pdf->MultiCell(263, 7, $reparacion->observacion, 1, 'L', 1, 0, '', '', true);
-
-                $pdf->Ln();
-                $pdf->SetFont('dejavusans','B',10);
-                $pdf->Cell(263,7,"Accesorios",1,0,'C',true);
                 $pdf->Ln(7);
-         
+                $pdf->SetFillColor(197,211,232);
+                $pdf->Cell(75,7,"  PROCEDIMIENTO A REALIZAR: ", 'LTBR',0,0,'L',true);
+                $pdf->SetFillColor(255,255,255);
+
                 $pdf->SetFont('dejavusans','',10);
-                $pdf->Cell(263,7,$string,1,0,'C',true);
-         
-                $pdf->Ln();
+                $pdf->Cell(188,7,"  $reparacion->proceso", 'LTBR',0,0,'L',true);
+                $pdf->SetFont('dejavusans','B',10);
                 $pdf->Ln(7);
+          
+                $pdf->SetFillColor(197,211,232);
+                $pdf->Cell(75,7,"  ACCESORIOS: ", 'LTBR',0,0,'L',true);
+                $pdf->SetFillColor(255,255,255);
+
+                $pdf->SetFont('dejavusans','',10);
+                $pdf->Cell(188,7,"  $string", 'LTBR',0,0,'L',true);
+                $pdf->SetFont('dejavusans','B',10);
+                $pdf->Ln(14);
+                $pdf->SetFillColor(197,211,232);
+                $pdf->Cell(75,7,"  PAGINA PARA SEGUIMIENTO: ", 'LTBR',0,0,'L',true);
+                $pdf->SetFillColor(255,255,255);
+
+                $pdf->SetFont('dejavusans','',10);
+                $pdf->Cell(57,7,"  servicell.zonasoftware.online", 'LTBR',0,0,'L',true);
+                $pdf->SetFont('dejavusans','B',10);
+                $pdf->SetFillColor(197,211,232);
+                $pdf->Cell(30,7,"  USUARIO: ", 'TBR',0,0,'L',true);
+                $pdf->SetFillColor(255,255,255);
+                $pdf->SetFillColor(255,255,255);
+
+                $pdf->SetFont('dejavusans','',10);
+                $pdf->Cell(30,7,"  $reparacion->celular", 'LTBR',0,0,'L',true);
+                $pdf->SetFont('dejavusans','B',10);
+                $pdf->SetFillColor(197,211,232);
+                $pdf->Cell(36,7,"  CONTRASEÑA: ", 'TBR',0,0,'L',true);
+           
+                $pdf->SetFillColor(255,255,255);
+
+                $pdf->SetFont('dejavusans','',10);
+                $pdf->Cell(35,7,"  $reparacion->cedula_nit", 'LTBR',0,0,'L',true);
+
+
+
+
+                $pdf->Ln();
+                $pdf->Ln();
+         
+               
+         
+                $pdf->SetFont('dejavusans','B',10);
+  
+                $pdf->Cell(263,7,"  OBSERVACIONES: ", 'LTR',0,0,'L',true);
+                $pdf->Ln(7);
+                $pdf->SetFont('dejavusans','',10);
+                $pdf->setCellPaddings(4, 2, 4, 2);
+                $pdf->MultiCell(263, 5, $reparacion->observacion, 1, 'L', 1, 0, '', '', true);
+          
+                
+                $pdf->Ln();
+
+                $pdf->Ln(7);
+        
 
                 /* Informacion a pagar */
 
            
     
-                $pdf->Ln(7);
-                $pdf->Cell(133);
-                $pdf->SetFont('dejavusans','',10);
-                $pdf->Cell(40,7,"  Fecha de Ingreso: ", 'LTR',0,0,'L',true);
+                $pdf->setCellPaddings(0, 0, 0, 0);
                 $pdf->SetFont('dejavusans','B',10);
-                $pdf->Cell(90,7,$reparacion->fecha_ingreso.'  ','TR',0,'R',0,true);
-                $pdf->Ln(7);
-                $pdf->Cell(133);
-                $pdf->SetFont('dejavusans','',10);
-                $pdf->Cell(40,7,"  Valor Convenido: ", 'LTR',0,0,'L',true);
+                $pdf->SetFillColor(197,211,232);
+                $pdf->Cell(75,7,"  VALOR CONVENIDO: ", 'TBLR',0,0,'L',true);
                 $pdf->SetFont('dejavusans','B',10);
-                $pdf->Cell(90,7,'$'.number_format($reparacion->valor_convenido).'  ','TR',0,'R',0,true);
-                $pdf->Ln(7);
-                $pdf->Cell(133);
+                $pdf->SetFillColor(255,255,255);
+                $pdf->Cell(57,7,'  $'.number_format($reparacion->valor_convenido).'  ','TBLR',0,0,'L',true);
+   
+
+                $pdf->SetFillColor(197,211,232);
+                $pdf->Cell(30,7,"  ABONO: ", 'TBR',0,0,'L',true);
+                $pdf->SetFillColor(255,255,255);
+                $pdf->SetFillColor(255,255,255);
+
                 $pdf->SetFont('dejavusans','',10);
-                $pdf->Cell(40,7,"  Abono: ", 'LTR',0,0,'L',true);
+                $pdf->Cell(30,7,'  $'.number_format($reparacion->abono), 'LTBR',0,0,'L',true);
                 $pdf->SetFont('dejavusans','B',10);
-                $pdf->Cell(90,7,'$'.number_format($reparacion->abono).'  ','TR',0,'R',0,true);
-                $pdf->Ln(7);
-                $pdf->Cell(133);
+                $pdf->SetFillColor(197,211,232);
+                $pdf->Cell(36,7,"  SALDO: ", 'TBR',0,0,'L',true);
+           
+                $pdf->SetFillColor(255,255,255);
+
                 $pdf->SetFont('dejavusans','',10);
-                $pdf->Cell(40,7,"  Saldo: ", 'LTRB',0,0,'L',true);
-                $pdf->SetFont('dejavusans','B',10);
-                $pdf->Cell(90,7,'$'.number_format($reparacion->saldo).'  ','TRB',0,'R',0,true);
-                
+                $pdf->Cell(35,7,'  $'.number_format($reparacion->saldo), 'LTBR',0,0,'L',true);
+
+       
+ 
+       
+
                 if(count($otros_costos)>0){
                     $pdf->Ln(14);
                     $pdf->Cell(133);
                     $pdf->SetFont('dejavusans','',10);
-                    $pdf->Cell(130,7,"  Otros Costos: ", '',0,0,'L',true);
-           
+                    $pdf->Cell(130,7,"  COSTOS EXTRAS: ", '',0,0,'L',true);
+                
                 }
                 $total = 0;
-
+                
                 foreach($otros_costos as $costo){
                     $total = $total + $costo->ingreso;
                     $pdf->Ln(7);
                     $pdf->Cell(133);
-                    $pdf->SetFont('dejavusans','',10);
-                    $pdf->Cell(40,7,'  '.$costo->descripcion, 'LTRB',0,0,'L',true);
+            
+                    $pdf->SetFillColor(197,211,232);
                     $pdf->SetFont('dejavusans','B',10);
-                    $pdf->Cell(90,7,'  $'.number_format($costo->ingreso).'  ','TRB',0,'R',0,true);
+                    $pdf->Cell(90,7,'  '.strtoupper($costo->descripcion), 'LTRB',0,0,'L',true);
+                    $pdf->SetFont('dejavusans','B',10);
+                    $pdf->SetFillColor(255,255,255);
+                    $pdf->Cell(40,7,'  $'.number_format($costo->ingreso).'  ','TRB',0,'R',0,true);
                 }
-
+                
                 $pdf->Ln(14);
                 $pdf->Cell(133);
-                $pdf->SetFont('dejavusans','',10);
-                $pdf->Cell(40,7,'  TOTAL', 'LTRB',0,0,'L',true);
+                $pdf->SetFillColor(197,211,232);
                 $pdf->SetFont('dejavusans','B',10);
-                $pdf->Cell(90,7,'  $'.number_format($reparacion->saldo + $total).'  ','TRB',0,'R',0,true);
-       
+                $pdf->Cell(90,7,'  GRAN TOTAL', 'LTRB',0,0,'L',true);
+                $pdf->SetFillColor(255,255,255);
+                $pdf->SetFont('dejavusans','B',10);
+                $pdf->Cell(40,7,'  $'.number_format($reparacion->saldo + $total).'  ','TRB',0,'R',0,true);
+
+                  
+                $pdf->Ln(7); 
+                $pdf->Ln(7); 
+                $pdf->SetFont('dejavusans','',10);
+                $pdf->SetFillColor(197,211,232);
+            
+                $pdf->Cell(90,30,"  ", '',0,0,'L',true);
+
+                
+                $pdf->Cell(83);
+
+                $pdf->Cell(90,30,"  ", '',0,0,'L',true);
+
+                $pdf->Ln(); 
+                $pdf->SetFillColor(255,255,255);
+
+                $pdf->SetFont('dejavusans','B',10);
+        
+                $pdf->Cell(90,10,'FIRMA DEL VENDEDOR',0,0,'C', true);
+
+                $pdf->SetFont('dejavusans','',10);
+                $pdf->SetFillColor(197,211,232);
+            
+ 
+                $pdf->SetFillColor(255,255,255);
+                $pdf->SetFont('dejavusans','B',10);
+                $pdf->Cell(83);
+                $pdf->Cell(90,10,'RECIBI CONFORME',0,0,'C');
+
+
+
+
+
+               
+                $pdf->Ln(7); 
+                $pdf->Ln(7);      
+                $pdf->Ln(7);
+                $pdf->SetFillColor(220, 255, 220);
+
 
                 $pdf->Output($reparacion->nombre.'-'.date('Y-m-d').'.pdf', 'I');
                

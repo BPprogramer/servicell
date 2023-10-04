@@ -4,13 +4,14 @@
 
     class Reparacion extends ActiveRecord {
         protected static $tabla = 'reparaciones';
-        protected static $columnasDB = ['id', 'nombre', 'cedula_nit', 'celular', 'direccion', 'marca', 'modelo', 'imei_1','imei_2', 'falla', 'proceso', 'valor_convenido', 'abono', 'saldo', 'valor_final', 'costo_final','accesorios','observacion','fecha_ingreso', 'fecha_cierre', 'estado','id_usuario', 'cliente_id'];
+        protected static $columnasDB = ['id', 'nombre', 'cedula_nit', 'celular', 'direccion','codigo' ,'marca', 'modelo', 'imei_1','imei_2', 'falla', 'proceso', 'valor_convenido', 'abono', 'saldo', 'valor_final', 'costo_final','accesorios','observacion','fecha_ingreso', 'fecha_cierre', 'estado','id_usuario', 'cliente_id'];
 
         public $id;
         public $nombre;
         public $cedula_nit;
         public $celular;
         public $direccion;
+        public $codigo;
         public $marca;
         public $modelo;
         public $imei_1;
@@ -39,6 +40,7 @@
             $this->cedula_nit = $args['cedula_nit'] ?? '';
             $this->celular = $args['celular'] ?? '';
             $this->direccion = $args['direccion'] ?? '';
+            $this->codigo = $args['direccion'] ?? null;
             $this->marca = $args['marca'] ?? '';
             $this->modelo = $args['modelo'] ?? '';
             $this->imei_1 = $args['imei_1'] ?? '';

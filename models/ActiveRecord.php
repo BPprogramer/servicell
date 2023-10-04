@@ -34,6 +34,7 @@ class ActiveRecord {
     // Consulta SQL para crear un objeto en Memoria (Active Record)
     public static function consultarSQL($query) {
         // Consultar la base de datos
+   
         $resultado = self::$db->query($query);
 
         // Iterar los resultados
@@ -119,7 +120,7 @@ class ActiveRecord {
 
     // Obtener Registros con cierta cantidad
     public static function get($limite) {
-        $query = "SELECT * FROM " . static::$tabla . " LIMIT ${limite} ORDER BY id DESC" ;
+        $query = "SELECT * FROM " . static::$tabla . " ORDER BY id DESC LIMIT $limite" ;
         $resultado = self::consultarSQL($query);
         return array_shift( $resultado ) ;
     }

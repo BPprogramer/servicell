@@ -11,9 +11,9 @@
             <li class="nav-item">
                 <a class="nav-link color-texto" id="notificaciones" href="#">Notificaciones</a>
             </li>
-            <li class="nav-item">
+        <!--     <li class="nav-item">
                 <a class="nav-link color-texto" id="avanzado" href="#">Costos Extras</a>
-            </li>
+            </li> -->
 
         </ul>
     </div>
@@ -155,6 +155,30 @@
 
         </div>
 
+             <!-- Display para avanzado -->
+    <div class="container-fluid  mt-4 p-0" id="info_avanzado">
+        <div class="row">
+    
+        </div>
+        <div class="col-md-6" style="padding-left: 0">
+          <div class="card card-widget widget-user-2">
+            <div class="widget-user-header bg-azul text-blanco" style="padding: 3px;">
+              <div class="row d-flex justify-content-between">
+                <div class="col-md-8">
+                  <h3 class="widget-user-username">Costos Extras <strong id="totalIngresos">0.00</strong></h3>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer p-0">
+              <div class="ingresos" id="ingresos">
+                <table class="table table-striped text-md" id="tabla-costos-cliente">
+
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <!-- Display para notificaciones -->
     <div class="container-fluid d-none mt-4" id="info_notificaciones" style="padding-left:0; padding-right:0">
@@ -184,39 +208,7 @@
         </div>
     </div>
 
-        <!-- Display para avanzado -->
-    <div class="container-fluid d-none mt-4" id="info_avanzado">
-      <div class="row">
-      
-
-
-
-        </div>
-        <div class="col-md-6" style="padding-right: 0">
-
-          <div class="card card-widget widget-user-2">
-            <div class="widget-user-header bg-azul text-blanco" style="padding: 3px;">
-              <div class="row d-flex justify-content-between">
-                <div class="col-md-8">
-                  <h3 class="widget-user-username">Costos Extras <strong id="totalIngresos">0.00</strong></h3>
-                </div>
-             
-              </div>
-
-            </div>
-            <div class="card-footer p-0">
-              <div class="ingresos" id="ingresos">
-                <table class="table table-striped text-md" id="tabla-costos-cliente">
-
-                </table>
-              </div>
-            </div>
-          </div>
-
-
-
-        </div>
-      </div>
+   
 
 
 

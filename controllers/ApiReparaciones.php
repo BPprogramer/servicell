@@ -55,7 +55,7 @@ use Model\Usuario;
                              "'.$reparacion->nombre.'",
                              "'.$reparacion->cedula_nit.'",
                              "'.$reparacion->celular.'",
-                             "'.$reparacion->fecha_ingreso.'",
+                             "'.$reparacion->codigo.'",
                              "'.$estado.'",
                              "'.$acciones.'"
                      ]';
@@ -72,6 +72,15 @@ use Model\Usuario;
                 session_start();
             } 
             date_default_timezone_set('America/Bogota');
+
+            $codigo = 1000;
+
+            $reparacion_anterior = Reparacion::get(1);
+            if($reparacion_anterior){
+                $codigo = $reparacion_anterior->codigo+1;
+            }
+
+         
 
             $usuario = new Usuario();
             $usuario->nombre = $_POST['nombre'];
@@ -91,8 +100,13 @@ use Model\Usuario;
             }
 
 
+
+
             $fecha_actual = date('Y-m-d H:i:s');
+           
+
             $reparacion = new Reparacion($_POST);
+            $reparacion->codigo = $codigo;
             $reparacion->valor_final = 0;
             $reparacion->costo_final = 0;
             $reparacion->fecha_ingreso = $fecha_actual;
@@ -161,6 +175,7 @@ use Model\Usuario;
             $reparacion->estado = $reparacion_anterior->estado;
             $reparacion->id_usuario = $reparacion_anterior->id_usuario;
             $reparacion->cliente_id = $reparacion_anterior->cliente_id;
+            $reparacion->codigo = $reparacion_anterior->codigo;
             $resultado = $reparacion->guardar();
             if($resultado){
                 echo json_encode(['type'=>'success', 'msg'=>'La Reparación ha  Actualizado con Exito']);

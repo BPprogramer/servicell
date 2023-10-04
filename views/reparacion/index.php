@@ -33,7 +33,7 @@
                 <th>Cliente</th>
                 <th>Identificación</th>
                 <th>Celular</th>
-                <th>Fecha de Ingreso</th>
+                <th>Código</th>
                 <th class="text-center">Estado</th>
                 <th class="text-center">Acciones</th>
               </tr>

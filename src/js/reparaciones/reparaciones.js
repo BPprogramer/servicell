@@ -327,13 +327,13 @@
             datos.append('accesorios',formatearCheckBox() );
          
 
-            btnSubmit.disabled = true;
+            //btnSubmit.disabled = true;
             let url = '';
             if(id){
       
                 url = `/api/reparacion/editar`;
             }else{
-                console.log('creando');
+               
                 url = '/api/reparacion/crear';
             }
             
@@ -343,6 +343,7 @@
                     method: 'POST'
                 })
                 const resultado = await respuesta.json();
+             
           
                 eliminarToastAnterior();
                 btnSubmit.disabled = false;
