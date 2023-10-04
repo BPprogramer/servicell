@@ -318,7 +318,7 @@ use Model\Reparacion;
                 $pdf->SetFillColor(255,255,255);
                 $pdf->SetFont('dejavusans','B',10);
                 $pdf->Cell(83);
-                $pdf->Cell(90,10,'RECIBI CONFORME',0,0,'C');
+                $pdf->Cell(90,10,'RECIBÍ CONFORME',0,0,'C');
 
 
 
@@ -329,6 +329,12 @@ use Model\Reparacion;
                 $pdf->Ln(7);      
                 $pdf->Ln(7);
                 $pdf->SetFillColor(220, 255, 220);
+                $pdf->SetFillColor(255,255,255);
+                $pdf->SetFont('dejavusans','',7);
+       
+                $pdf->Cell(263,10,'ESTA FACTURA CAMBIARIA DE COMPRAVENTA SE ASIMILA EN TODOS SUS EFECTOS LEGALES A LA LETRA DE CAMBIA SEGÚN EL ARTÍCULO 774 DEL CÓDIGO DE COMERCIO. DESPUÉS DEL VENCIMIENTO DE LA PRESENTE',0,0,'C');
+                $pdf->Ln(5);
+                $pdf->Cell(263,10,'FACTURA CAUSARÁ INTERÉS EN LA TASA MÁXIMA AUTORIZADA POR LA LEY',0,0,'C');
 
 
                 $pdf->Output($reparacion->nombre.'-'.date('Y-m-d').'.pdf', 'I');
@@ -680,17 +686,24 @@ use Model\Reparacion;
                 $pdf->SetFillColor(255,255,255);
                 $pdf->SetFont('dejavusans','B',10);
                 $pdf->Cell(83);
-                $pdf->Cell(90,10,'RECIBI CONFORME',0,0,'C');
+                $pdf->Cell(90,10,'RECIBÍ CONFORME',0,0,'C');
 
 
 
 
 
                
+             
                 $pdf->Ln(7); 
                 $pdf->Ln(7);      
                 $pdf->Ln(7);
                 $pdf->SetFillColor(220, 255, 220);
+                $pdf->SetFillColor(255,255,255);
+                $pdf->SetFont('dejavusans','',7);
+       
+                $pdf->Cell(263,10,'ESTA FACTURA CAMBIARIA DE COMPRAVENTA SE ASIMILA EN TODOS SUS EFECTOS LEGALES A LA LETRA DE CAMBIA SEGÚN EL ARTÍCULO 774 DEL CÓDIGO DE COMERCIO. DESPUÉS DEL VENCIMIENTO DE LA PRESENTE',0,0,'C');
+                $pdf->Ln(5);
+                $pdf->Cell(263,10,'FACTURA CAUSARÁ INTERÉS EN LA TASA MÁXIMA AUTORIZADA POR LA LEY',0,0,'C');
 
 
                 $pdf->Output($reparacion->nombre.'-'.date('Y-m-d').'.pdf', 'I');
