@@ -279,7 +279,7 @@ use Model\Reparacion;
                 $pdf->SetFillColor(255,255,255);
                 $pdf->SetFillColor(255,255,255);
 
-                $pdf->SetFont('dejavusans','',10);
+                $pdf->SetFont('dejavusans','B',10);
                 $pdf->Cell(30,7,'$'.number_format($reparacion->abono), 'LTBR',0,'C',0,true);
                 $pdf->SetFont('dejavusans','B',10);
                 $pdf->SetFillColor(197,211,232);
@@ -287,7 +287,7 @@ use Model\Reparacion;
            
                 $pdf->SetFillColor(255,255,255);
 
-                $pdf->SetFont('dejavusans','',10);
+                $pdf->SetFont('dejavusans','B',10);
                 $pdf->Cell(35,7,'$'.number_format($reparacion->saldo), 'LTBR',0,'C',0,true);
 
                   
@@ -615,7 +615,7 @@ use Model\Reparacion;
                 $pdf->SetFillColor(255,255,255);
                 $pdf->SetFillColor(255,255,255);
 
-                $pdf->SetFont('dejavusans','',10);
+                $pdf->SetFont('dejavusans','B',10);
                 $pdf->Cell(30,7,'$'.number_format($reparacion->abono), 'LTBR',0,'C',0,true);
                 $pdf->SetFont('dejavusans','B',10);
                 $pdf->SetFillColor(197,211,232);
@@ -623,7 +623,7 @@ use Model\Reparacion;
            
                 $pdf->SetFillColor(255,255,255);
 
-                $pdf->SetFont('dejavusans','',10);
+                $pdf->SetFont('dejavusans','B',10);
                 $pdf->Cell(35,7,'$'.number_format($reparacion->saldo), 'LTBR',0,'C',0,true);
 
        
