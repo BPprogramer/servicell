@@ -152,20 +152,20 @@
                     <div class="form-group row col-md-6 mr-md-3">
                         <label for="valor_convenido" class="col-sm-3 col-form-label">Valor Convenido</label>
                         <div class="col-sm-9">
-                            <input type="text" name="valor_convenido" class="form-control" id="valor_convenido" placeholder="Valor Convenido">
+                            <input type="text" name="valor_convenido" value="0" class="form-control" id="valor_convenido" placeholder="Valor Convenido">
                                   
                         </div>
                     </div>
                     <div class="form-group row col-md-3 mr-2">
                         <label for="abono" class="col-sm-2 col-form-label">Abono</label>
                         <div class="col-sm-10">
-                            <input type="text" name="abono" class="form-control" id="abono" placeholder="Abono">
+                            <input type="text" name="abono" value="0" class="form-control" id="abono" placeholder="Abono">
                         </div>
                     </div>
                     <div class="form-group row col-md-3">
-                        <label for="saldo" class="col-sm-2 col-form-label">Saldo</label>
+                        <label for="saldo" class="col-sm-2 col-form-label" >Saldo</label>
                         <div class="col-sm-10">
-                            <input type="text" name="saldo" class="form-control" id="saldo" placeholder="Saldo" readonly>
+                            <input type="text" name="saldo" class="form-control" value="0" id="saldo" placeholder="Saldo" readonly>
                         </div>
                     </div>
                   

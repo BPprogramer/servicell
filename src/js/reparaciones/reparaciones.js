@@ -2,7 +2,7 @@
     const reparaciones = document.querySelector('#reparaciones');
     if(reparaciones){
         let tablaReparaciones;
-        const marcasArray = ['NO ESPECIFICA','SAMSUMG', 'MOTOROLA',"NOKIA", 'LG', 'XIAOMI', 'KRONO', 'LENOVO', 'ALCATEL','HIUNDAI', 'IPHONE', 'SENDTEL','ASUS','TOSHIBA','DELL','HP','OPPO','REALME','HONOR','POCO','VIVO','ACER','SONY','BLU','CATERPILLAR','HTC', 'INFINIX','MICROSOFT','PANASONIC','SHARP','SONY ERICSSON', 'TLC', 'ZTE', 'OTRAS']
+        const marcasArray = ['NO ESPECIFICA','SAMSUMG', 'MOTOROLA',"NOKIA","HUAWEI" ,'LG', 'XIAOMI', 'KRONO', 'LENOVO', 'ALCATEL','HIUNDAI', 'IPHONE', 'SENDTEL','ASUS','TOSHIBA','DELL','HP','OPPO','REALME','HONOR','POCO','VIVO','ACER','SONY','BLU','CATERPILLAR','HTC', 'INFINIX','MICROSOFT','PANASONIC','SHARP','SONY ERICSSON', 'TLC', 'ZTE', 'OTRAS']
         const formulario = document.querySelector('#reparacionForm');
         let id = null;
         const nombre = document.querySelector('#nombre')

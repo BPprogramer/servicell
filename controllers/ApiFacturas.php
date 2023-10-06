@@ -40,7 +40,7 @@ use Model\Reparacion;
                 // # Logo de la empresa formato png #
     
             
-                $pdf->Image('../public/img_logo/logo_pdf.jpg',17,10,53,55,'JPG');
+                $pdf->Image('../public/img_logo/logo_pdf.jpg',17,10,53,58,'JPG');
 
                 $pdf->Ln(0);
         
@@ -102,7 +102,7 @@ use Model\Reparacion;
                 $pdf->SetFont('dejavusans','B',10);
                 $pdf->SetFillColor(255,255,255);
              
-                $pdf->Cell(30,7,"  $reparacion->codigo",'TRB',0,0,'L',true);                
+                $pdf->Cell(30,7,"  $reparacion->codigo", 'LTBR',0,'C',0,true);                
 
                 $pdf->Ln(10);
               //informacion cCliente
@@ -218,7 +218,7 @@ use Model\Reparacion;
                 $pdf->SetFillColor(255,255,255);
 
                 $pdf->SetFont('dejavusans','',10);
-                $pdf->Cell(57,7,"  servicell.zonasoftware.online", 'LTBR',0,0,'L',true);
+                $pdf->Cell(57,7,"servicell.zonasoftware.online", 'LTBR',0,'C',0,true);
                 $pdf->SetFont('dejavusans','B',10);
                 $pdf->SetFillColor(197,211,232);
                 $pdf->Cell(30,7,"  USUARIO: ", 'TBR',0,0,'L',true);
@@ -226,7 +226,7 @@ use Model\Reparacion;
                 $pdf->SetFillColor(255,255,255);
 
                 $pdf->SetFont('dejavusans','',10);
-                $pdf->Cell(30,7,"  $reparacion->celular", 'LTBR',0,0,'L',true);
+                $pdf->Cell(30,7,"$reparacion->celular", 'LTBR',0,'C',0,true);
                 $pdf->SetFont('dejavusans','B',10);
                 $pdf->SetFillColor(197,211,232);
                 $pdf->Cell(36,7,"  CONTRASEÑA: ", 'TBR',0,0,'L',true);
@@ -234,7 +234,7 @@ use Model\Reparacion;
                 $pdf->SetFillColor(255,255,255);
 
                 $pdf->SetFont('dejavusans','',10);
-                $pdf->Cell(35,7,"  $reparacion->cedula_nit", 'LTBR',0,0,'L',true);
+                $pdf->Cell(35,7,"$reparacion->cedula_nit", 'LTBR',0,'C',0,true);
 
 
 
@@ -272,16 +272,15 @@ use Model\Reparacion;
                 $pdf->Cell(75,7,"  VALOR CONVENIDO: ", 'TBLR',0,0,'L',true);
                 $pdf->SetFont('dejavusans','B',10);
                 $pdf->SetFillColor(255,255,255);
-                $pdf->Cell(57,7,'  $'.number_format($reparacion->valor_convenido).'  ','TBLR',0,0,'L',true);
+                $pdf->Cell(57,7,'$'.number_format($reparacion->valor_convenido).'  ','TBLR',0,'C',0,true);
    
-
                 $pdf->SetFillColor(197,211,232);
                 $pdf->Cell(30,7,"  ABONO: ", 'TBR',0,0,'L',true);
                 $pdf->SetFillColor(255,255,255);
                 $pdf->SetFillColor(255,255,255);
 
                 $pdf->SetFont('dejavusans','',10);
-                $pdf->Cell(30,7,'  $'.number_format($reparacion->abono), 'LTBR',0,0,'L',true);
+                $pdf->Cell(30,7,'$'.number_format($reparacion->abono), 'LTBR',0,'C',0,true);
                 $pdf->SetFont('dejavusans','B',10);
                 $pdf->SetFillColor(197,211,232);
                 $pdf->Cell(36,7,"  SALDO: ", 'TBR',0,0,'L',true);
@@ -289,36 +288,39 @@ use Model\Reparacion;
                 $pdf->SetFillColor(255,255,255);
 
                 $pdf->SetFont('dejavusans','',10);
-                $pdf->Cell(35,7,'  $'.number_format($reparacion->saldo), 'LTBR',0,0,'L',true);
+                $pdf->Cell(35,7,'$'.number_format($reparacion->saldo), 'LTBR',0,'C',0,true);
 
                   
                 $pdf->Ln(7); 
                 $pdf->Ln(7); 
                 $pdf->SetFont('dejavusans','',10);
-                $pdf->SetFillColor(197,211,232);
+                $pdf->SetFillColor(255,255,255);
             
-                $pdf->Cell(90,30,"  ", '',0,0,'L',true);
+                $pdf->Cell(90,30,"  ", 'TBRB','',0,0,'L',true);
 
                 
                 $pdf->Cell(83);
-
-                $pdf->Cell(90,30,"  ", '',0,0,'L',true);
+             
+                $pdf->Cell(90,30,"  ", 'TBRB','',0,0,'L',true);
 
                 $pdf->Ln(); 
-                $pdf->SetFillColor(255,255,255);
+                $pdf->SetFillColor(197,211,232);
 
                 $pdf->SetFont('dejavusans','B',10);
         
-                $pdf->Cell(90,10,'FIRMA DEL VENDEDOR',0,0,'C', true);
+                $pdf->Cell(90,10,'FIRMA DEL TÉCNICO','TBRB',0,'C', true);
 
                 $pdf->SetFont('dejavusans','',10);
-                $pdf->SetFillColor(197,211,232);
+                // $pdf->SetFillColor(255,255,255);
             
  
-                $pdf->SetFillColor(255,255,255);
-                $pdf->SetFont('dejavusans','B',10);
+                // $pdf->SetFillColor(197,211,232);
                 $pdf->Cell(83);
-                $pdf->Cell(90,10,'RECIBÍ CONFORME',0,0,'C');
+                 $pdf->SetFillColor(197,211,232);
+                $pdf->SetFont('dejavusans','B',10);
+            
+               
+                $pdf->Cell(90,10,'FIRMA PROPIETARIO DEL EQUIPO','TBRB',0,'C', true);
 
 
 
@@ -332,9 +334,9 @@ use Model\Reparacion;
                 $pdf->SetFillColor(255,255,255);
                 $pdf->SetFont('dejavusans','',7);
        
-                $pdf->Cell(263,10,'ESTA FACTURA CAMBIARIA DE COMPRAVENTA SE ASIMILA EN TODOS SUS EFECTOS LEGALES A LA LETRA DE CAMBIO SEGÚN EL ARTÍCULO 774 DEL CÓDIGO DE COMERCIO. DESPUÉS DEL VENCIMIENTO DE LA PRESENTE',0,0,'C');
+                $pdf->Cell(263,10,'No se hace por teléfonos o accesorios que no sean reclamados después de 30 días',0,0,'C');
                 $pdf->Ln(5);
-                $pdf->Cell(263,10,'FACTURA CAUSARÁ INTERÉS EN LA TASA MÁXIMA AUTORIZADA POR LA LEY',0,0,'C');
+                $pdf->Cell(263,10,'El propietario del equipo se hace responsable para la procedencia del celular',0,0,'C');
 
 
                 $pdf->Output($reparacion->nombre.'-'.date('Y-m-d').'.pdf', 'I');
@@ -377,7 +379,7 @@ use Model\Reparacion;
                 // # Logo de la empresa formato png #
     
             
-                $pdf->Image('../public/img_logo/logo_pdf.jpg',17,10,53,55,'JPG');
+                $pdf->Image('../public/img_logo/logo_pdf.jpg',17,10,53,58,'JPG');
 
                 $pdf->Ln(0);
         
@@ -439,7 +441,7 @@ use Model\Reparacion;
                 $pdf->SetFont('dejavusans','B',10);
                 $pdf->SetFillColor(255,255,255);
              
-                $pdf->Cell(30,7,"  $reparacion->codigo",'TRB',0,0,'L',true);                
+                $pdf->Cell(30,7,"  $reparacion->codigo", 'LTBR',0,'C',0,true);                
 
                 $pdf->Ln(10);
               //informacion cCliente
@@ -555,7 +557,7 @@ use Model\Reparacion;
                 $pdf->SetFillColor(255,255,255);
 
                 $pdf->SetFont('dejavusans','',10);
-                $pdf->Cell(57,7,"  servicell.zonasoftware.online", 'LTBR',0,0,'L',true);
+                $pdf->Cell(57,7,"servicell.zonasoftware.online", 'LTBR',0,'C',0,true);
                 $pdf->SetFont('dejavusans','B',10);
                 $pdf->SetFillColor(197,211,232);
                 $pdf->Cell(30,7,"  USUARIO: ", 'TBR',0,0,'L',true);
@@ -563,7 +565,7 @@ use Model\Reparacion;
                 $pdf->SetFillColor(255,255,255);
 
                 $pdf->SetFont('dejavusans','',10);
-                $pdf->Cell(30,7,"  $reparacion->celular", 'LTBR',0,0,'L',true);
+                $pdf->Cell(30,7,"$reparacion->celular", 'LTBR',0,'C',0,true);
                 $pdf->SetFont('dejavusans','B',10);
                 $pdf->SetFillColor(197,211,232);
                 $pdf->Cell(36,7,"  CONTRASEÑA: ", 'TBR',0,0,'L',true);
@@ -571,7 +573,7 @@ use Model\Reparacion;
                 $pdf->SetFillColor(255,255,255);
 
                 $pdf->SetFont('dejavusans','',10);
-                $pdf->Cell(35,7,"  $reparacion->cedula_nit", 'LTBR',0,0,'L',true);
+                $pdf->Cell(35,7,"$reparacion->cedula_nit", 'LTBR',0,'C',0,true);
 
 
 
@@ -605,7 +607,7 @@ use Model\Reparacion;
                 $pdf->Cell(75,7,"  VALOR CONVENIDO: ", 'TBLR',0,0,'L',true);
                 $pdf->SetFont('dejavusans','B',10);
                 $pdf->SetFillColor(255,255,255);
-                $pdf->Cell(57,7,'  $'.number_format($reparacion->valor_convenido).'  ','TBLR',0,0,'L',true);
+                $pdf->Cell(57,7,'$'.number_format($reparacion->valor_convenido).'  ','TBLR',0,'C',0,true);
    
 
                 $pdf->SetFillColor(197,211,232);
@@ -614,7 +616,7 @@ use Model\Reparacion;
                 $pdf->SetFillColor(255,255,255);
 
                 $pdf->SetFont('dejavusans','',10);
-                $pdf->Cell(30,7,'  $'.number_format($reparacion->abono), 'LTBR',0,0,'L',true);
+                $pdf->Cell(30,7,'$'.number_format($reparacion->abono), 'LTBR',0,'C',0,true);
                 $pdf->SetFont('dejavusans','B',10);
                 $pdf->SetFillColor(197,211,232);
                 $pdf->Cell(36,7,"  SALDO: ", 'TBR',0,0,'L',true);
@@ -622,7 +624,7 @@ use Model\Reparacion;
                 $pdf->SetFillColor(255,255,255);
 
                 $pdf->SetFont('dejavusans','',10);
-                $pdf->Cell(35,7,'  $'.number_format($reparacion->saldo), 'LTBR',0,0,'L',true);
+                $pdf->Cell(35,7,'$'.number_format($reparacion->saldo), 'LTBR',0,'C',0,true);
 
        
  
@@ -647,7 +649,7 @@ use Model\Reparacion;
                     $pdf->Cell(90,7,'  '.strtoupper($costo->descripcion), 'LTRB',0,0,'L',true);
                     $pdf->SetFont('dejavusans','B',10);
                     $pdf->SetFillColor(255,255,255);
-                    $pdf->Cell(40,7,'  $'.number_format($costo->ingreso).'  ','TRB',0,'R',0,true);
+                    $pdf->Cell(40,7,'$'.number_format($costo->ingreso), 'LTBR',0,'C',0,true);
                 }
                 
                 $pdf->Ln(14);
@@ -657,7 +659,7 @@ use Model\Reparacion;
                 $pdf->Cell(90,7,'  GRAN TOTAL', 'LTRB',0,0,'L',true);
                 $pdf->SetFillColor(255,255,255);
                 $pdf->SetFont('dejavusans','B',10);
-                $pdf->Cell(40,7,'  $'.number_format($reparacion->saldo + $total).'  ','TRB',0,'R',0,true);
+                $pdf->Cell(40,7,'$'.number_format($reparacion->saldo + $total), 'LTBR',0,'C',0,true);
 
                   
                 $pdf->Ln(7); 
@@ -665,29 +667,31 @@ use Model\Reparacion;
                 $pdf->SetFont('dejavusans','',10);
                 $pdf->SetFillColor(197,211,232);
             
-                $pdf->Cell(90,30,"  ", '',0,0,'L',true);
+                $pdf->Cell(90,30,"  ", 'TBRB','',0,0,'L',true);
 
                 
                 $pdf->Cell(83);
-
-                $pdf->Cell(90,30,"  ", '',0,0,'L',true);
+             
+                $pdf->Cell(90,30,"  ", 'TBRB','',0,0,'L',true);
 
                 $pdf->Ln(); 
-                $pdf->SetFillColor(255,255,255);
+                $pdf->SetFillColor(197,211,232);
 
                 $pdf->SetFont('dejavusans','B',10);
         
-                $pdf->Cell(90,10,'FIRMA DEL VENDEDOR',0,0,'C', true);
+                $pdf->Cell(90,10,'FIRMA DEL TÉCNICO','TBRB',0,'C', true);
 
                 $pdf->SetFont('dejavusans','',10);
-                $pdf->SetFillColor(197,211,232);
+                // $pdf->SetFillColor(255,255,255);
             
  
-                $pdf->SetFillColor(255,255,255);
-                $pdf->SetFont('dejavusans','B',10);
+                // $pdf->SetFillColor(197,211,232);
                 $pdf->Cell(83);
-                $pdf->Cell(90,10,'RECIBÍ CONFORME',0,0,'C');
-
+                 $pdf->SetFillColor(197,211,232);
+                $pdf->SetFont('dejavusans','B',10);
+            
+               
+                $pdf->Cell(90,10,'FIRMA PROPIETARIO DEL EQUIPO','TBRB',0,'C', true);
 
 
 
@@ -699,11 +703,11 @@ use Model\Reparacion;
                 $pdf->Ln(7);
                 $pdf->SetFillColor(220, 255, 220);
                 $pdf->SetFillColor(255,255,255);
-                $pdf->SetFont('dejavusans','',7);
+                $pdf->SetFont('dejavusans','',9);
        
-                $pdf->Cell(263,10,'ESTA FACTURA CAMBIARIA DE COMPRAVENTA SE ASIMILA EN TODOS SUS EFECTOS LEGALES A LA LETRA DE CAMBIO SEGÚN EL ARTÍCULO 774 DEL CÓDIGO DE COMERCIO. DESPUÉS DEL VENCIMIENTO DE LA PRESENTE',0,0,'C');
+                $pdf->Cell(263,10,'No se hace por teléfonos o accesorios que no sean reclamados después de 30 días',0,0,'C');
                 $pdf->Ln(5);
-                $pdf->Cell(263,10,'FACTURA CAUSARÁ INTERÉS EN LA TASA MÁXIMA AUTORIZADA POR LA LEY',0,0,'C');
+                $pdf->Cell(263,10,'El propietario del equipo se hace responsable para la procedencia del celular',0,0,'C');
 
 
                 $pdf->Output($reparacion->nombre.'-'.date('Y-m-d').'.pdf', 'I');
