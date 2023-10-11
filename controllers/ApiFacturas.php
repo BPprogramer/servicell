@@ -40,7 +40,7 @@ use Model\Reparacion;
                 // # Logo de la empresa formato png #
     
             
-                $pdf->Image('../public/img_logo/logo_pdf.jpg',17,10,53,58,'JPG');
+                $pdf->Image('../public/img_logo/logo_pdf.jpg',21,10,53,58,'JPG');
 
                 $pdf->Ln(0);
         
@@ -73,7 +73,7 @@ use Model\Reparacion;
                 $pdf->Cell(87);
                 $pdf->SetFont('dejavusans','B',18);
                 $pdf->SetTextColor(0,0,0);
-                $pdf->Cell(150,10,'ALEXANDER VELASQUEZ MARTINEZ',0,0,'C');
+                $pdf->Cell(150,10,'ALEXÁNDER VELÁSQUEZ MARTÍNEZ',0,0,'C');
     
    
             
@@ -328,15 +328,15 @@ use Model\Reparacion;
 
                
                 $pdf->Ln(7); 
-                $pdf->Ln(7);      
-                $pdf->Ln(7);
+                $pdf->Ln(7); 
+             
                 $pdf->SetFillColor(220, 255, 220);
                 $pdf->SetFillColor(255,255,255);
-                $pdf->SetFont('dejavusans','',7);
+                $pdf->SetFont('dejavusans','',8.6);
        
-                $pdf->Cell(263,10,'No se hace por teléfonos o accesorios que no sean reclamados después de 30 días',0,0,'C');
+                $pdf->Cell(263,10,'No se hace responsable por teléfonos o accesorios que no sean reclamados después de 30 días. El propietario del equipo se hace responsable por la procedencia del celular',0,0,'C');
                 $pdf->Ln(5);
-                $pdf->Cell(263,10,'El propietario del equipo se hace responsable para la procedencia del celular',0,0,'C');
+             
 
 
                 $pdf->Output($reparacion->nombre.'-'.date('Y-m-d').'.pdf', 'I');
@@ -379,7 +379,7 @@ use Model\Reparacion;
                 // # Logo de la empresa formato png #
     
             
-                $pdf->Image('../public/img_logo/logo_pdf.jpg',17,10,53,58,'JPG');
+                $pdf->Image('../public/img_logo/logo_pdf.jpg',21,10,53,58,'JPG');
 
                 $pdf->Ln(0);
         
@@ -412,7 +412,7 @@ use Model\Reparacion;
                 $pdf->Cell(87);
                 $pdf->SetFont('dejavusans','B',18);
                 $pdf->SetTextColor(0,0,0);
-                $pdf->Cell(150,10,'ALEXANDER VELASQUEZ MARTINEZ',0,0,'C');
+                $pdf->Cell(150,10,'ALEXÁNDER VELÁSQUEZ MARTÍNEZ',0,0,'C');
     
    
             
@@ -700,14 +700,13 @@ use Model\Reparacion;
              
                 $pdf->Ln(7); 
                 $pdf->Ln(7);      
-                $pdf->Ln(7);
+            
                 $pdf->SetFillColor(220, 255, 220);
                 $pdf->SetFillColor(255,255,255);
-                $pdf->SetFont('dejavusans','',9);
+                $pdf->SetFont('dejavusans','',8.6);
        
-                $pdf->Cell(263,10,'No se hace por teléfonos o accesorios que no sean reclamados después de 30 días',0,0,'C');
-                $pdf->Ln(5);
-                $pdf->Cell(263,10,'El propietario del equipo se hace responsable para la procedencia del celular',0,0,'C');
+            
+                $pdf->Cell(263,10,'No se hace responsable por teléfonos o accesorios que no sean reclamados después de 30 días. El propietario del equipo se hace responsable por la procedencia del celular',0,0,'C');
 
 
                 $pdf->Output($reparacion->nombre.'-'.date('Y-m-d').'.pdf', 'I');
