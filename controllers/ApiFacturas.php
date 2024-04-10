@@ -97,7 +97,7 @@ class ApiFacturas
             $pdf->SetFont('dejavusans', 'B', 10);
             $pdf->SetFillColor(255, 255, 255);
             $pdf->Cell(30, 7, "  $reparacion->fecha_ingreso", 'TRB', 0, 0, 'L', true);
-            $pdf->Cell(143);
+            $pdf->Cell(59);
             $pdf->SetFont('dejavusans', 'B', 10);
             $pdf->SetFillColor(197, 211, 232);
             $pdf->Cell(30, 7, "  ORDEN", 1, 0, 'LR', true);
@@ -436,7 +436,7 @@ class ApiFacturas
             $pdf->SetFont('dejavusans', 'B', 10);
             $pdf->SetFillColor(255, 255, 255);
             $pdf->Cell(30, 7, "  $reparacion->fecha_ingreso", 'TRB', 0, 0, 'L', true);
-            $pdf->Cell(143);
+            $pdf->Cell(59);
             $pdf->SetFont('dejavusans', 'B', 10);
             $pdf->SetFillColor(197, 211, 232);
             $pdf->Cell(30, 7, "  ORDEN", 1, 0, 'LR', true);
